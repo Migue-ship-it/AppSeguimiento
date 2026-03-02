@@ -14,7 +14,7 @@ class Programa_formacion extends Model
     public $incrementing = true;
     protected $keyType = 'int';
     protected $table ='tblprograma_formacion';
-    protected $fillable = ['codigo', 'denominacion', 'direccion'];
+    protected $fillable = ['codigo', 'denominacion', 'observacion'];
     public function fichacaracterizacion(){
         return $this -> hasMany (Ficha_caracterizacion:: class, 'tblprograma_formacion_nis');
     }

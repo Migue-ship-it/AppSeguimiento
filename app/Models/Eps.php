@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Eps extends Model
 {
+    use HasFactory;
     public $timestamps = false;
     protected $primaryKey = 'nis';
     public $incrementing = true;
     protected $keyType = 'int';
      protected $table = 'tbleps';
-     protected $fillable = ['denominacion', 'obsservacion'];
+     protected $fillable = ['Numdoc', 'denominacion', 'observacion'];
      public function aprendices(){
         return $this -> hasMany (Aprendices:: class, 'tbleps_nis');
     }

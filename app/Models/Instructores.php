@@ -15,7 +15,7 @@ class Instructores extends Model
     protected $table = 'tblaprendices';
      protected $fillable = ['Tdoc', 'Ndoc', 'nombres', 'apellidos',
     'direccion', 'telefono', 'correoinstitucional', 'correopersonal', 'sexo',
-    'fechaNac'];
+    'fechaNac', 'tbltipos_documento_nis', 'tbleps_nis', 'tblrolesacademicos_nis'];
      public function rolesacademicos(){
         return $this -> belongsTo (Rolesacademicos:: class, 'tblrolesacademicos_nis');
     }

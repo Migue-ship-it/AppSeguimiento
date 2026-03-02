@@ -50,7 +50,9 @@ class FichaCaracterizacionController extends Controller
         'fecha_Fin' => 'required',
     ]);
         $ficha = Ficha_caracterizacion::findOrFail($nis);
-        $ficha->update($request->all());    
+        $ficha->update($request->all()); 
+        return redirect()->route('ficha_caracterizacion.index')
+         ->with('success', 'Registro creado correctamente');   
     }
     public function destroy($nis)
     {

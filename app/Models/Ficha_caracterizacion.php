@@ -13,9 +13,9 @@ class Ficha_caracterizacion extends Model
     public $incrementing = true;
     protected $keyType = 'int';
     protected $table ='tblficha_caracterizacion';
-    protected $fillable = ['codigo', 'cupo', 'fecha_Inicio', 'fecha_Fin', 'observaciones'];
+    protected $fillable = ['codigo', 'cupo', 'fecha_Inicio', 'fecha_Fin', 'observaciones', 'tblcentro_formacion_nis'];
    public function centroformacion(){
-        return $this -> belongsTo (Centro_formacion:: class, 'tblcentro_formacion_nis');
+        return $this -> belongsTo (Centro_formacion:: class, 'tblcentro_formacion_nis', 'tblprograma_formacion_nis');
     }
     public function programaformacion(){
         return $this -> belongsTo (Programa_formacion:: class, 'tblprograma_formacion_nis');

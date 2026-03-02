@@ -20,8 +20,7 @@ class ProgramaFormacionController extends Controller
     {
         $request->validate([
         'codigo' => 'required',
-        'denominacion' => 'required',
-        'direccion' => 'required'
+        'denominacion' => 'required'
     ]);
     try {
         Programa_formacion::create($request->all());
@@ -44,11 +43,12 @@ class ProgramaFormacionController extends Controller
     {
         $request->validate([
         'codigo' => 'required',
-        'denominacion' => 'required',
-        'direccion' => 'required',
+        'denominacion' => 'required'
     ]);
         $programa = Programa_formacion::findOrFail($nis);
-        $programa->update($request->all());    
+        $programa->update($request->all());  
+        return redirect()->route('programa_formacion.index')
+         ->with('success', 'Registro creado correctamente');  
     }
     public function destroy($nis)
     {

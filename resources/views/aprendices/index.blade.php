@@ -37,7 +37,7 @@
 </tr>
 </thead>
   <tbody>
-@foreach($aprendices as $a)
+@foreach($aprendiz as $a)
 <tr>
 <td>{{ $a->nis }}</td>
 <td>{{ $a->Tdoc }}</td>

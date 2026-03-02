@@ -7,10 +7,13 @@
 <script src="https://cdn.jsdelivr.net" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Detalle del rol</h1>
-<p><strong>nis:</strong> {{ $roles->nis }}</p>
-<p><strong>Descripcion:</strong> {{ $roles->descripcion }}</p>
+<h1>Detalle de la bitacora</h1>
+<p><strong>ID:</strong> {{ $bitacora->id }}</p>
+<p><strong>Usuario:</strong> {{ $bitacora->id_login->name }}</p>
+<p><strong>PDF:</strong> {{ $bitacora->file}}</p>
+<p><strong>Fecha de creacion:</strong> {{ $bitacora->created_at}}</p>
+<p><strong>Fecha de actualizacion:</strong> {{ $bitacora->updated_at}}</p>
 <br>
-<a href="{{ route('roles.index') }}">Volver</a>
+<a href="{{ route('bitacoras.index') }}">Volver</a>
 </body>
 </html>

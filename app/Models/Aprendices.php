@@ -15,7 +15,7 @@ class Aprendices extends Model
      protected $table = 'tblaprendices';
      protected $fillable = ['Tdoc', 'Ndoc', 'nombres', 'apellidos',
     'direccion', 'telefono', 'correoinstitucional', 'correopersonal', 'sexo',
-    'fechaNac'];
+    'fechaNac', 'tbltipos_documento_nis', 'tbleps_nis', 'tblficha_caracterizacion_nis'];
      public function fichacaracterizacion(){
         return $this -> belongsTo (Ficha_caracterizacion:: class, 'tblficha_caracterizacion_nis');
     }

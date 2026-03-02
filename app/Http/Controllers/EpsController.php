@@ -47,7 +47,8 @@ th;
         'denominacion' => 'required',
     ]);
         $eps = Eps::findOrFail($nis);
-        $eps->update($request->all());    
+        $eps->update($request->all()); 
+        return redirect()->route('eps.index')->with('success', 'Registro creado correctamente');   
     }
     public function destroy($nis)
     {

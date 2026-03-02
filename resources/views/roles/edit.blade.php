@@ -6,6 +6,15 @@
 </head>
 <body>
 <h1>Editar roles</h1>
+@if ($errors->any()) <div style="color: red;"> 
+<ul>
+@foreach ($errors->all() as $error) 
+<li>{{ $error }}
+</li>
+ @endforeach 
+</ul>
+</div>
+@endif
 <form action="{{ route('roles.update', $roles->nis) }}" method="POST">
 @csrf
 @method('PUT')

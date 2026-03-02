@@ -47,7 +47,9 @@ class RegionalController extends Controller
         'observacion' => 'required'
     ]);
         $regional = Regional::findOrFail($nis);
-        $regional->update($request->all());    
+        $regional->update($request->all()); 
+        return redirect()->route('regional.index')
+         ->with('success', 'Registro creado correctamente');   
     }
     public function destroy($nis)
     {

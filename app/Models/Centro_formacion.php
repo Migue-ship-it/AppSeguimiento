@@ -14,7 +14,7 @@ class Centro_formacion extends Model
     public $incrementing = true;
     protected $keyType = 'int';
     protected $table ='tblcentro_formacion';
-    protected $fillable = ['codigo', 'denominacion', 'direccion'];
+    protected $fillable = ['codigo', 'denominacion', 'direccion', 'tblregional_nis'];
     public function regional(){
         return $this -> belongsTo (Regional:: class, 'tblregional_nis');
     }

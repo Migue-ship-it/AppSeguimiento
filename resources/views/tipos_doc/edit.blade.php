@@ -1,5 +1,7 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html lang = "es">
 <head>
+<meta charset="UTF-8">
 <title>Actualizacion</title>
 </head>
 <body>
@@ -17,8 +19,8 @@
 @csrf
 @method('PUT')
 <label>Denominación:</label><br>
-<input type="text" name="denominacion" value="{{ old('denominacion', $tipos->denominacion) }}"><br><br>
-<label>Observación:</label><br> <input type="text" name="observacion" value="{{ old('observacion', $tipos->observacion) }}"> <br><br>
+<input type="text" name="denominacion" value="{{ $tipos->denominacion }}"><br><br>
+<label>Observación:</label><br> <input type="text" name="observacion" value="{{ $tipos->observacion }}"> <br><br>
 <button type="submit">Actualizar</button>
 </form>
 <br>

@@ -13,7 +13,7 @@ class Subtipos_alternativa extends Model
     public $incrementing = true;
     protected $keyType = 'int';
     protected $table = 'tblsubtipos_alt';
-     protected $fillable = ['nombre', 'descripcion', 'estado'];
+     protected $fillable = ['nombre', 'descripcion', 'estado', 'tblalternativas_id_alternativa'];
      public function alternativas(){
         return $this -> belongsTo (Alternativas:: class, 'tblalternativas_id_alternativa');
     }

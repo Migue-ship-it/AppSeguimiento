@@ -57,6 +57,8 @@ class EntecoformadoresController extends Controller
     ]);
         $ente = Entecoformadores::findOrFail($nis);
         $ente->update($request->all());    
+         return redirect()->route('ente_conformadores.index')
+         ->with('success', 'Registro creado correctamente');
     }
     public function destroy($nis)
     {

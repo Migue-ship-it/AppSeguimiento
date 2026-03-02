@@ -45,10 +45,12 @@ class RolesacademicosController extends Controller
     ]);
         $roles = Rolesacademicos::findOrFail($nis);
         $roles->update($request->all());    
+         return redirect()->route('roles.index')
+         ->with('success', 'Registro creado correctamente');
     }
     public function destroy($nis)
     {
         Rolesacademicos::destroy($nis);
-        return redirect()->route('roles.index'); 
+        return redirect()->route('roles.index')->with('danger', 'Registro eliminado correctamente'); 
     }
 }

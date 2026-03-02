@@ -62,7 +62,9 @@ class InstructoresController extends Controller
         'fechaNac' => 'required',
     ]);
         $instructores = Eps::findOrFail($nis);
-        $instructores->update($request->all());    
+        $instructores->update($request->all());
+        return redirect()->route('instructores.index')
+         ->with('success', 'Registro creado correctamente');    
     }
     public function destroy($nis)
     {

@@ -10,7 +10,7 @@ class AprendicesController extends Controller
     public function index()
     {
         $aprendices = Aprendices::all();
-        return view('aprendices.index', compact('aprendices'));
+        return view('aprendices.index', compact('aprendiz'));
     }
     public function create()
     {
@@ -40,12 +40,12 @@ class AprendicesController extends Controller
     public function show($nis)
     {
         $aprendices = Aprendices::findOrFail($nis);
-        return view('aprendices.show', compact('aprendices'));
+        return view('aprendices.show', compact('aprendiz'));
     }
     public function edit($nis)
     {
         $aprendices = Aprendices::findOrFail($nis);
-        return view('aprendices.edit', compact('aprendices'));
+        return view('aprendices.edit', compact('aprendiz'));
     }
     public function update(Request $request, $nis)
     {
@@ -63,6 +63,8 @@ class AprendicesController extends Controller
     ]);
         $aprendices = Aprendices::findOrFail($nis);
         $aprendices->update($request->all()); 
+         return redirect()->route('aprendices.index')
+         ->with('success', 'Registro creado correctamente');
    }
     public function destroy($nis)
     {

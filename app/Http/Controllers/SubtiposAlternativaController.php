@@ -9,8 +9,8 @@ class SubtiposAlternativaController extends Controller
 {
     public function index()
     {
-        $subtipos = Subtipos_alternativa::all();
-        return view('subtipos_alt.index', compact('subtipos'));  
+        $subtipo = Subtipos_alternativa::all();
+        return view('subtipos_alt.index', compact('subtipo'));  
     }
     public function create()
     {
@@ -32,13 +32,13 @@ class SubtiposAlternativaController extends Controller
     }
     public function show($id)
     {
-        $subtipos = Subtipos_alternativa::findOrFail($id_subtipo);
-        return view('subtipos_alt.show', compact('subtipos'));
+        $subtipo = Subtipos_alternativa::findOrFail($id_subtipo);
+        return view('subtipos_alt.show', compact('subtipo'));
     }
    public function edit($id)
     {
-        $subtipos = Subtipos_alternativa::findOrFail($id_subtipo);
-        return view('subtipos_alt.edit', compact('subtipos')); 
+        $subtipo = Subtipos_alternativa::findOrFail($id_subtipo);
+        return view('subtipos_alt.edit', compact('subtipo')); 
     }
     public function update(Request $request, $id_subtipo)
     {
@@ -47,8 +47,9 @@ class SubtiposAlternativaController extends Controller
         'descripcion' => 'required',
         'estado' => 'required'
     ]);
-        $subtipos = Subtipos_alternativa::findOrFail($id_subtipo);
-        $subtipos->update($request->all());    
+        $subtipo = Subtipos_alternativa::findOrFail($id_subtipo);
+        $subtipo->update($request->all()); 
+        return redirect()->route('subtipos_alt.index') ->with('success', 'Registro creado correctamente');   
     }
     public function destroy($id_subtipo)
     {
