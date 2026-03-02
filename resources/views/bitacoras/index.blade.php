@@ -34,8 +34,13 @@
 @foreach($bitacora as $b)
 <tr>
 <td>{{ $b->id }}</td>
-<td>{{ $b->id_login->name }}</td>
-<td>{{ $b->file }}</td>
+<td>{{ $b->user->name ?? 'Sin usuario' }}</td>
+<td>
+    @if($b->file)
+    <a href="{{ asset($b->file) }}" download>Ver PDF</a>   
+    @else
+      Sin  
+    @endif
 <td>{{ $b->created_at }}</td>
 <td>{{ $b->updated_at }}</td>
 <td>

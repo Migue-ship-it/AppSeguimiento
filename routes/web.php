@@ -15,9 +15,6 @@ use App\Http\Controllers\SubtiposAlternativaController;
 use App\Http\Controllers\TiposDocumentoController;
 use App\Http\Controllers\BitacorasController;
 use App\Http\Controllers\AuthController;
-Route::get('/', function () {
-    return redirect()->route('aprendices.index');
-});
 Route::resource('alternativa', AlternativasController::class);
 Route::resource('aprendices', AprendicesController::class);
 Route::resource('centro_formacion', CentroFormacionController::class);
@@ -36,7 +33,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLogin'])->middleware('guest')->name('login'); //usuario registrado
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 

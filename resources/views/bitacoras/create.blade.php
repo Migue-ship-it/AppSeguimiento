@@ -6,6 +6,11 @@
 <script src="https://cdn.jsdelivr.net" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </head>
 <body>
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
@@ -14,9 +19,14 @@
 <h1>Crear bitacoras</h1>
 <form method="POST" action="{{ route('bitacoras.store') }}" enctype="multipart/form-data">
     @csrf
-    <label>Adjuntar PDF</label>
-    <input type="file" name="file" required>
-    <button type="submit">Guardar</button>
+    <label class = "form-label">Adjuntar PDF</label>
+    <input type="file" name="file" class="form-control" accept="application/pdf" required>
+    @error ('file')
+    <div class="text-danger">{{ $message}}
+        {{ session('error') }}
+@enderror
+</div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 <br><a href="{{ route('bitacoras.index') }}">Volver</a>
 </body></html>

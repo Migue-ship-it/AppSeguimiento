@@ -21,7 +21,6 @@
 <li><a href="{{ route('roles.index') }}">Roles</a></li>
 <li><a href="{{ route('subtipos_alt.index') }}">Subtipos de alternativa</a></li>
 <li><a href="{{ route('tipos_doc.index') }}">Tipos de documento</a></li>
-<li><a href="{{ route('register') }}">Registrar Usuario</a></li></ul>
 <hr>
 <form method="POST" action="{{ route('logout') }}">
 @csrf

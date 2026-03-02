@@ -9,7 +9,7 @@
 <body>
 <h1>Detalle de la bitacora</h1>
 <p><strong>ID:</strong> {{ $bitacora->id }}</p>
-<p><strong>Usuario:</strong> {{ $bitacora->id_login->name }}</p>
+{{-- <p><strong>Usuario:</strong> {{ $bitacora->user->name }}</p> --}}
 <p><strong>PDF:</strong> {{ $bitacora->file}}</p>
 <p><strong>Fecha de creacion:</strong> {{ $bitacora->created_at}}</p>
 <p><strong>Fecha de actualizacion:</strong> {{ $bitacora->updated_at}}</p>
