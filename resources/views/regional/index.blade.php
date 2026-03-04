@@ -31,19 +31,21 @@
   <tbody>
     <tr>
         @foreach($regional as $r)
+  <td>{{ $r->nis }}</td>
 <td>{{ $r->codigo }}</td>
 <td>{{ $r->denominacion }}</td>
 <td>{{ $r->observacion }}</td>
 <td>
-<a href="{{ route('regional.show', $r->id) }}">Ver</a>
-<a href="{{ route('regional.edit', $r->id) }}">Editar</a>
-<form action="{{ route('regional.destroy', $r->id) }}" method="POST">
+<a href="{{ route('regional.show', $r->nis) }}">Ver</a>
+<a href="{{ route('regional.edit', $r->nis) }}">Editar</a>
+<form action="{{ route('regional.destroy', $r->nis) }}" method="POST">
 @csrf
 @method('DELETE')
 <button type="submit">Eliminar</button>
 </td>
 </form>
 </tr>
+<a href="{{ route('dashboard') }}">Volver al inicio</a>
 </tbody>
 </table>
 @endforeach

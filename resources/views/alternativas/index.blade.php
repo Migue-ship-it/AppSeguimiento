@@ -33,16 +33,16 @@
   <tbody>
 @foreach($alternativa as $a)
 <tr>
-<td>{{ $a->nis }}</td>
+<td>{{ $a->id_alternativa }}</td>
 <td>{{ $a->nombre }}</td>
 <td>{{ $a->descripcion }}</td>
 <td>{{ $a->estado }}</td>
 <td>{{ $a->created_at }}</td>
 <td>{{ $a->updated_at }}</td>
 <td>
-<a href="{{ route('alternativas.show', $a->nis) }}">Ver</a>
-<a href="{{ route('alternativas.edit', $a->nis) }}">Editar</a>
-<form action="{{ route('alternativas.destroy', $a->nis) }}" method="POST" style="display:inline;">
+<a href="{{ route('alternativas.show', $a->id_alternativa) }}">Ver</a>
+<a href="{{ route('alternativas.edit', $a->id_alternativa) }}">Editar</a>
+<form action="{{ route('alternativas.destroy', $a->id_alternativa) }}" method="POST" style="display:inline;">
 @csrf
 @method('DELETE')
 <button type="submit">Eliminar</button>
@@ -50,6 +50,7 @@
 </td>
 </tr>
 @endforeach
+<a href="{{ route('dashboard') }}">Volver al inicio</a>
 </tbody>
 </table>
 </body></html>

@@ -15,14 +15,14 @@
 <form action="{{ route('regional.store') }}" method="POST">
     @csrf
     <div class = "form-group col-md-3">
-    <label for="codigo">Codigo #</label>
-    <input type="number" class="form-control" name="codigo" id="codigo" placeholder="#" required>
+    <label for="codigo">Codigo</label>
+    <input type="number" name="codigo" id="codigo" placeholder="#" required>
     <br><br>
     <label for="denominacion">Denominacion</label>
-    <input type="text" name="denominacion" placeholder="denominacion" required>
+    <input type="text" name="denominacion" id="denominacion" required>
     <br><br>
     <label for="observacion">Observacion</label>
-    <input type="text" name="observacion" placeholder="observacion">
+    <input type="text" name="observacion" id="observacion">
     <br><br>
     <button type="submit">Guardar</button>
 </form>

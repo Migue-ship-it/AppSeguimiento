@@ -23,6 +23,7 @@
       <thead>
 <tr>
 <th scope="col">nis</th>
+<th scope="col">codigo</th>
 <th scope="col">denominacion</th>
 <th scope="col">observacion</th>
 <th scope="col">Acciones</th>
@@ -46,6 +47,7 @@
 </td>
 </tr>
 @endforeach
+<a href="{{ route('dashboard') }}">Volver al inicio</a>
 </tbody>
 </table>
 </body></html>

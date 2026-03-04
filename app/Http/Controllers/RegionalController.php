@@ -20,7 +20,8 @@ class RegionalController extends Controller
     {
         $request->validate([
         'codigo' => 'required',
-        'denominacion' => 'required'
+        'denominacion' => 'required',
+        'observacion' => 'nullable'
     ]);
     try {
         Regional::create($request->all());
@@ -44,7 +45,7 @@ class RegionalController extends Controller
         $request->validate([
         'codigo' => 'required',
         'denominacion' => 'required',
-        'observacion' => 'required'
+        'observacion' => 'nullable'
     ]);
         $regional = Regional::findOrFail($nis);
         $regional->update($request->all()); 

@@ -49,6 +49,7 @@
 </td>
 </tr>
 @endforeach
+<a href="{{ route('dashboard') }}">Volver al inicio</a>
 </tbody>
 </table>
 </body></html>

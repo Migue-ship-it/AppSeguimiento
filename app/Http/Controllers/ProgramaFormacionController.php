@@ -20,7 +20,8 @@ class ProgramaFormacionController extends Controller
     {
         $request->validate([
         'codigo' => 'required',
-        'denominacion' => 'required'
+        'denominacion' => 'required',
+        'observacion' => 'nullable'
     ]);
     try {
         Programa_formacion::create($request->all());
@@ -29,7 +30,7 @@ class ProgramaFormacionController extends Controller
          return back()->with('error', 'Creado');
     }
     }
-   public function show($id)
+   public function show($nis)
     {
         $programa = Programa_formacion::findOrFail($nis);
         return view('programa_formacion.show', compact('programa'));
@@ -43,7 +44,8 @@ class ProgramaFormacionController extends Controller
     {
         $request->validate([
         'codigo' => 'required',
-        'denominacion' => 'required'
+        'denominacion' => 'required',
+        'observacion' => 'nullable'
     ]);
         $programa = Programa_formacion::findOrFail($nis);
         $programa->update($request->all());  

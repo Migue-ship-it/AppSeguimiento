@@ -15,7 +15,7 @@ use App\Http\Controllers\SubtiposAlternativaController;
 use App\Http\Controllers\TiposDocumentoController;
 use App\Http\Controllers\BitacorasController;
 use App\Http\Controllers\AuthController;
-Route::resource('alternativa', AlternativasController::class);
+Route::resource('alternativas', AlternativasController::class);
 Route::resource('aprendices', AprendicesController::class);
 Route::resource('centro_formacion', CentroFormacionController::class);
 Route::resource('ente_conformadores', EntecoformadoresController::class);
@@ -28,12 +28,18 @@ Route::resource('roles', RolesacademicosController::class);
 Route::resource('subtipos_alt', SubtiposAlternativaController::class);
 Route::resource('tipos_doc', TiposDocumentoController::class);
 Route::resource('bitacoras', BitacorasController::class);
-Route::get('/register', [AuthController::class, 'showLogin'])->name('login');
+
+Route::middleware('guest')->group(function () { //invitado o recien al registrarse
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'showLogin'])->middleware('guest')->name('login'); //usuario registrado
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login'); 
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+});
+
+Route::middleware('auth')->group(function () { //usuario registrado
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', function () {
     return view('dashboard');
-})->middleware('auth')->name('dashboard');
+})->name('dashboard'); 
+});
 

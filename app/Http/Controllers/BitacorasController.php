@@ -35,13 +35,12 @@ class BitacorasController extends Controller
 }
     public function show(Bitacoras $bitacora)
     {
-        if ($bitacora ->id_login!== Auth::id());{
-        }
         return view('bitacoras.show', compact('bitacora'));
     }
     public function edit(Bitacoras $bitacora)
     {
         if ($bitacora ->id_login!== Auth::id());{
+            abort(403);
             //dd($bitacora); revision de variables  
         }        
         return view('bitacoras.edit', compact('bitacora'));
@@ -49,7 +48,7 @@ class BitacorasController extends Controller
     public function update(Request $request, Bitacoras $bitacora)
     {
     if ($bitacora ->id_login!== Auth::id());{
-            //abort(403);//mensaje de error de existencia de id para la muestra de bitacora
+            abort(403);//mensaje de error de existencia de id para la muestra de bitacora
         }
          $request->validate([
         'file' => 'nullable|file|mimes:pdf|max:2048'

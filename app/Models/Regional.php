@@ -13,7 +13,7 @@ class Regional extends Model
     public $incrementing = true;
     protected $keyType = 'int';
     protected $table ='tblregional';
-    protected $fillable = ['codigo', 'denominacion'];
+    protected $fillable = ['codigo', 'denominacion', 'observacion'];
     public function centroformacion(){
         return $this -> hasMany (Centro_formacion:: class, 'tblregional_nis');
     }

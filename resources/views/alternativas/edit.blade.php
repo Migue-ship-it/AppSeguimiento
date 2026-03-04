@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Editar alternativa</h1>
-<form action="{{ route('alternativas.update', $alternativa->nis) }}" method="POST">
+<form action="{{ route('alternativas.update', $alternativa->id_alternativa) }}" method="POST">
 @csrf
 @method('PUT')
 <label>Nombre:</label>
@@ -19,7 +19,7 @@
 <option value="">Seleccione el estado</option>
 <option value="activo" value="{{ $alternativa->estado }}">Activo</option>
 <option value="inactivo" value="{{ $alternativa->estado }}">Inactivo</option>
-<br><br>
+</select><br><br>
 <button type="submit">Actualizar</button></form>
 <br><a href="{{ route('alternativas.index') }}">Volver</a>
 </body></html>

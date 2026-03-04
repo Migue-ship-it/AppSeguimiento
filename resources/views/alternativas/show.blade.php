@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Detalle de la alternativa</h1>
-<p><strong>nis:</strong> {{ $alternativa->nis }}</p>
+<p><strong>id:</strong> {{ $alternativa->id_alternativa }}</p>
 <p><strong>Nombre:</strong> {{ $alternativa->nombre }}</p>
 <p><strong>Descripcion:</strong> {{ $alternativa->descripcion }}</p>
 <p><strong>estado:</strong> {{ $alternativa->estado }}</p>
