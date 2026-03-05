@@ -50,7 +50,11 @@ class RolesacademicosController extends Controller
     }
     public function destroy($nis)
     {
+        try {
         Rolesacademicos::destroy($nis);
         return redirect()->route('roles.index')->with('danger', 'Registro eliminado correctamente'); 
+        } catch (\Exception $th) {
+           return back()->with('error', 'registro eliminado');
+        }
     }
 }

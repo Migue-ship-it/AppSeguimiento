@@ -55,7 +55,11 @@ class AlternativasController extends Controller
     }
     public function destroy($id_alternativa)
     {
+        try {
         Alternativas::destroy($id_alternativa);
-        return redirect()->route('alternativas.index');
+        return redirect()->route('alternativas.index')->with('danger', 'Registro eliminado correctamente');
+        } catch (\Exception $th) {
+            return back()->with('error', 'registro eliminado');
+        }
     }
 }

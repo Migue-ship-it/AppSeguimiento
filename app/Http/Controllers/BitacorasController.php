@@ -68,6 +68,7 @@ class BitacorasController extends Controller
     }
     public function destroy(Bitacoras $bitacora)
     {
+    try {
     if ($bitacora->id_login !== Auth::id()) {
         abort(403);
     }
@@ -79,5 +80,8 @@ class BitacorasController extends Controller
     }
     $bitacora->delete();
     return redirect()->route('bitacoras.index')->with('danger', 'Registro eliminado correctamente'); 
+    } catch (\Exception $th) {
+        return back()->with('error', 'registro eliminado');
+    }
     }
 }

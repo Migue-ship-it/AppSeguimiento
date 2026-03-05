@@ -54,7 +54,11 @@ class RegionalController extends Controller
     }
     public function destroy($nis)
     {
+        try {
         Regional::destroy($nis);
-        return redirect()->route('regional.index'); 
+        return redirect()->route('regional.index')->with('danger', 'Registro eliminado correctamente'); 
+        } catch (\Exception $th) {
+           return back()->with('error', 'registro eliminado');
+        }
     }
 }

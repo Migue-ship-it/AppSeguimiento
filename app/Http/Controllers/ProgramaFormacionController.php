@@ -9,8 +9,8 @@ class ProgramaFormacionController extends Controller
 {
     public function index()
     {
-        $programa = Programa_formacion::all();
-        return view('programa_formacion.index', compact('programa')); 
+        $programa_formacion = Programa_formacion::all();
+        return view('programa_formacion.index', compact('programa_formacion')); 
     }
     public function create()
     {
@@ -32,13 +32,13 @@ class ProgramaFormacionController extends Controller
     }
    public function show($nis)
     {
-        $programa = Programa_formacion::findOrFail($nis);
-        return view('programa_formacion.show', compact('programa'));
+        $programa_formacion = Programa_formacion::findOrFail($nis);
+        return view('programa_formacion.show', compact('programa_formacion'));
     }
    public function edit($nis)
     {
-        $programa = Programa_formacion::findOrFail($nis);
-        return view('programa_formacion.edit', compact('programa')); 
+        $programa_formacion = Programa_formacion::findOrFail($nis);
+        return view('programa_formacion.edit', compact('programa_formacion')); 
     }
     public function update(Request $request, $nis)
     {
@@ -47,14 +47,18 @@ class ProgramaFormacionController extends Controller
         'denominacion' => 'required',
         'observacion' => 'nullable'
     ]);
-        $programa = Programa_formacion::findOrFail($nis);
-        $programa->update($request->all());  
+        $programa_formacion = Programa_formacion::findOrFail($nis);
+        $programa_formacion->update($request->all());  
         return redirect()->route('programa_formacion.index')
          ->with('success', 'Registro creado correctamente');  
     }
     public function destroy($nis)
     {
-        Programa_formacion::destroy($nis);
-        return redirect()->route('programa_formacion.index'); 
+        try {
+        $programa_formacion->delete($nis);
+        return redirect()->route('programa_formacion.index')->with('danger', 'Registro eliminado correctamente'); 
+        } catch (\Exception $th) {
+           return back()->with('error', 'registro eliminado');
+        }
     }
 }

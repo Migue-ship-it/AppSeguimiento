@@ -53,7 +53,11 @@ class SubtiposAlternativaController extends Controller
     }
     public function destroy($id_subtipo)
     {
+        try {
         Subtipos_alternativa::destroy($id_subtipo);
-        return redirect()->route('subtipos_alt.index'); 
+        return redirect()->route('subtipos_alt.index')->with('danger', 'Registro eliminado correctamente'); 
+        } catch (\Exception $th) {
+           return back()->with('error', 'registro eliminado');
+        }
     }
 }

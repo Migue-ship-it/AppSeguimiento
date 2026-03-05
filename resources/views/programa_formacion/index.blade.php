@@ -30,16 +30,16 @@
 </tr>
 </thead>
   <tbody>
-@foreach($programa as $p)
+@foreach($programa_formacion as $p)
 <tr>
 <td>{{ $p->nis }}</td>
 <td>{{ $p->codigo }}</td>
 <td>{{ $p->denominacion }}</td>
 <td>{{ $p->observacion }}</td>
 <td>
-<a href="{{ route('programa_formacion.show', $p->nis) }}">Ver</a>
-<a href="{{ route('programa_formacion.edit', $p->nis) }}">Editar</a>
-<form action="{{ route('programa_formacion.destroy', $p->nis) }}" method="POST" style="display:inline;">
+<a href="{{ route('programa_formacion.show', $p) }}">Ver</a>
+<a href="{{ route('programa_formacion.edit', $p) }}">Editar</a>
+<form action="{{ route('programa_formacion.destroy', $p) }}" method="POST" style="display:inline;">
 @csrf
 @method('DELETE')
 <button type="submit">Eliminar</button>

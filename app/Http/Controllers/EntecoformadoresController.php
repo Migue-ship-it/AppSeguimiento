@@ -62,7 +62,11 @@ class EntecoformadoresController extends Controller
     }
     public function destroy($nis)
     {
+        try {
         Entecoformadores::destroy($nis);
-        return redirect()->route('ente_conformadores.index'); 
+        return redirect()->route('ente_conformadores.index')->with('danger', 'Registro eliminado correctamente'); 
+        } catch (\Exception $th) {
+            return back()->with('error', 'registro eliminado');
+        }
     }
     }

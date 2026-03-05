@@ -21,7 +21,7 @@
 <br><br>
 <table class="table">
 <tr>
-<th scope="col">nis</th>
+<th scope="col">id</th>
 <th scope="col">Nombre</th>
 <th scope="col">Descripcion</th>
 <th scope="col">estado</th>

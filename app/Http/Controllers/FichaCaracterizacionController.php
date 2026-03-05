@@ -56,7 +56,11 @@ class FichaCaracterizacionController extends Controller
     }
     public function destroy($nis)
     {
+        try {
         Ficha_caracterizacion::destroy($nis);
-        return redirect()->route('ficha_caracterizacion.index'); 
+        return redirect()->route('ficha_caracterizacion.index')->with('danger', 'Registro eliminado correctamente'); 
+        } catch (\Exception $th) {
+           return back()->with('error', 'registro eliminado');
+        }
     }
 }

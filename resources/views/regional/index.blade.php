@@ -43,10 +43,10 @@
 @method('DELETE')
 <button type="submit">Eliminar</button>
 </td>
-</form>
 </tr>
+</form>
+@endforeach
 <a href="{{ route('dashboard') }}">Volver al inicio</a>
 </tbody>
 </table>
-@endforeach
 </body></html>

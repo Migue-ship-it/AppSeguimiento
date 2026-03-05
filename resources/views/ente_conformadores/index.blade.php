@@ -15,7 +15,14 @@
     <div class="alert alert-danger">
         {{ session('danger') }}
     </div>
-@endif
+    @endif
+    <?php
+    $s = [1=> "Cédula de Ciudadanía",
+    2=> "Cédula de Extranjería",
+    3=> "Permiso por Protección Temporal(PPT)",
+    4=> "Permiso Especial de Permanencia (PEP)"
+    ];
+    ?>
 <h1>Lista de ente conformadores</h1>
 <a href="{{ route('ente_conformadores.create') }}">Nuevo ente coformador</a>
 <br><br>
@@ -37,7 +44,7 @@
 @foreach($ente as $conformador)
 <tr>
 <td>{{ $conformador->nis }}</td>
-<td>{{ $conformador->Tdoc }}</td>
+<td>{{ $s[$conformador->Tdoc] }}</td> 
 <td>{{ $conformador->Ndoc }}</td>
 <td>{{ $conformador->razonsocial }}</td>
 <td>{{ $conformador->direccion }}</td>

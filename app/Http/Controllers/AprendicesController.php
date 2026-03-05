@@ -68,7 +68,11 @@ class AprendicesController extends Controller
    }
     public function destroy($nis)
     {
+        try {
         Aprendices::destroy($nis);
-        return redirect()->route('aprendices.index');
+        return redirect()->route('aprendices.index')->with('danger', 'Registro eliminado correctamente');
+        } catch (\Exception $th) {
+             return back()->with('error', 'registro eliminado');
+        }
     }
 }

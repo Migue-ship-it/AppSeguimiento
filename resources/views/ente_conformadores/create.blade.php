@@ -20,6 +20,7 @@
 <option value="2">Cédula de Extranjería</option>
 <option value="3">Permiso por Protección Temporal (PPT)</option>
 <option value="4">Permiso Especial de Permanencia (PEP)</option>
+</select>
 <br><br>
 <label>No. de documento:</label>
 <input type="number" name="Ndoc"  id="Ndoc"  required>

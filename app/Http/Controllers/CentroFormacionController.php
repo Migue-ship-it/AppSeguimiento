@@ -45,7 +45,7 @@ class CentroFormacionController extends Controller
         $request->validate([
         'codigo' => 'required',
         'denominacion' => 'required',
-        'direccion' => 'required',
+        'direccion' => 'required'
     ]);
         $centroformacion = Centro_formacion::findOrFail($nis);
         return redirect()->route('centro_formacion.index')
@@ -53,7 +53,11 @@ class CentroFormacionController extends Controller
     }
     public function destroy($nis)
     {
+        try {
         Centro_formacion::destroy($nis);
-        return redirect()->route('centro_formacion.index');
+        return redirect()->route('centro_formacion.index')->with('danger', 'Registro eliminado correctamente');
+        } catch (\Exception $th) {
+            return back()->with('error', 'registro eliminado');
+        }
     }
 }

@@ -21,7 +21,7 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt($credenciales)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')->with('success', 'Bienvenido!');
         }
         return back()->withErrors([
             'documento' => 'Credenciales incorrectas',
@@ -47,9 +47,13 @@ class AuthController extends Controller
     }
     public function logout(Request $request)
     {
+        try {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Cerrando sesion');
+        } catch (\Exception $th) {
+           return back()->with('error', 'error de cierre de sesion');
+        }
     }
 }

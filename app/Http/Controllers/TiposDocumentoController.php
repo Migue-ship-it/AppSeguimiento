@@ -49,15 +49,13 @@ class TiposDocumentoController extends Controller
         'observacion' => 'nullable'
     ]);
         $tipos = Tipos_documento::findOrFail($nis);
-        $tipos->denominacion = $request->denominacion;
-        $tipos->observacion = $request->observacion;
-        $tipos->save();
+        $tipos->update($request->all()); 
         return redirect()->route('tipos_doc.index')->with('success', 'registro actualizado');
     }
     public function destroy($nis)
     {
         try {
-       $tipo = Tipos_documento::destroy($nis);
+        Tipos_documento::destroy($nis);
         return redirect()->route('tipos_doc.index')->with('danger', 'registro eliminado');
        } catch (\Exception $e) {
          return back()->with('error', 'registro eliminado');

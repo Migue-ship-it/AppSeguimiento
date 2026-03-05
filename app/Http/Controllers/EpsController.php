@@ -52,7 +52,11 @@ th;
     }
     public function destroy($nis)
     {
+        try {
         Eps::destroy($nis);
-        return redirect()->route('eps.index'); 
+        return redirect()->route('eps.index')->with('danger', 'Registro eliminado correctamente'); 
+        } catch (\Exception $th) {
+            return back()->with('error', 'registro eliminado');
+        }
     }
 }
