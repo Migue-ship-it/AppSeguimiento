@@ -19,6 +19,9 @@
 <p><strong>Correo electronico:</strong> {{ $instructores->correopersonal }}</p>
 <p><strong>Tipo de sexo:</strong> {{ $instructores->sexo }}</p>
 <p><strong>Fecha de nacimiento:</strong> {{ $instructores->fechaNac }}</p>
+<p><strong>Tipo de documento:</strong> {{ $instructores->tbltipos_documento_nis }}</p>
+<p><strong>EPS:</strong> {{ $instructores->tbleps_nis }}</p>
+<p><strong>Rol:</strong> {{ $instructores->tblrolesacademicos_nis }}</p>
 <br>
 <a href="{{ route('instructores.index') }}">Volver</a>
 </body>

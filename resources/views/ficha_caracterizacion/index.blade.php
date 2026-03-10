@@ -38,6 +38,8 @@
 <td>{{ $caracterizacion->fecha_Inicio }}</td>
 <td>{{ $caracterizacion->fecha_Fin }}</td>
 <td>{{ $caracterizacion->observaciones }}</td>
+<td>{{ $caracterizacion->tblcentro_formacion_nis }}</td>
+<td>{{ $caracterizacion->tblprograma_formacion_nis }}</td>
 <td>
 <a href="{{ route('ficha_caracterizacion.show', $caracterizacion->nis) }}">Ver</a>
 <a href="{{ route('ficha_caracterizacion.edit', $caracterizacion->nis) }}">Editar</a>

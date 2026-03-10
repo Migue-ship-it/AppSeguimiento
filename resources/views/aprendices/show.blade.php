@@ -19,6 +19,9 @@
 <p><strong>Correo electronico:</strong> {{ $aprendiz->correopersonal }}</p>
 <p><strong>Sexo:</strong> {{ $aprendiz->sexo }}</p>
 <p><strong>Fecha de nacimiento:</strong> {{ $aprendiz->fechaNac }}</p>
+<p><strong>Tipo de documento:</strong> {{ $aprendiz->tbltipos_documento_nis }}</p>
+<p><strong>EPS:</strong> {{ $aprendiz->tbleps_nis }}</p>
+<p><strong>Ficha de caracterizacion:</strong> {{ $aprendiz->tblficha_caracterizacion_nis }}</p>
 <br>
 <a href="{{ route('aprendices.index') }}">Volver</a>
 </body>

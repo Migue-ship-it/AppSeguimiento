@@ -15,16 +15,20 @@
 <form action="{{ route('subtipos_alt.store') }}" method="POST">
 @csrf
 <label>Nombre:</label>
-<input type="text" name="nombre" required>
+<input type="text" name="nombre" id="nombre" required>
 <br><br>
 <label>Descripcion:</label>
-<input type="text" name="descripcion" required>
+<input type="text" name="descripcion" id="descripcion" required>
 <br><br>
 <select name="estado" required>
 <option value="">Seleccione el estado</option>
 <option value="activo">Activo</option>
 <option value="inactivo">Inactivo</option>
-<br><br></select><br></br>
+</select><br></br>
+<select name="tblalternativas_id_alternativa" id="tblalternativas_id_alternativa" min="1" max="4" required>
+<option value="">Seleccione la alternativa que pertenece:</option>
+<option value="1">:</option>
+</select><br></br>
 <button type="submit">Guardar</button></form>
 <br><a href="{{ route('subtipos_alt.index') }}">Volver</a>
 </body></html>

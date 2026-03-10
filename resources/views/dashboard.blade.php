@@ -16,7 +16,7 @@
 <li><a href="{{ route('eps.index') }}">EPS</a></li>
 <li><a href="{{ route('ficha_caracterizacion.index') }}">Fichas de caracterizacion</a></li>
 <li><a href="{{ route('instructores.index') }}">Instructores</a></li>
-<li><a href="{{ route('programa_formacion.index') }}">Programas de formacion</a></li>
+<li><a href="{{ route('programa.index') }}">Programas de formacion</a></li>
 <li><a href="{{ route('regional.index') }}">Regionales</a></li>
 <li><a href="{{ route('roles.index') }}">Roles</a></li>
 <li><a href="{{ route('subtipos_alt.index') }}">Subtipos de alternativa</a></li>

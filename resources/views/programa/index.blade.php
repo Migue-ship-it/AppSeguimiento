@@ -17,7 +17,7 @@
     </div>
 @endif
 <h1>Lista de programas</h1>
-<a href="{{ route('programa_formacion.create') }}">Nuevo programa</a>
+<a href="{{ route('programa.create') }}">Nuevo programa</a>
 <br><br>
 <table class="table">
       <thead>
@@ -37,9 +37,9 @@
 <td>{{ $p->denominacion }}</td>
 <td>{{ $p->observacion }}</td>
 <td>
-<a href="{{ route('programa_formacion.show', $p) }}">Ver</a>
-<a href="{{ route('programa_formacion.edit', $p) }}">Editar</a>
-<form action="{{ route('programa_formacion.destroy', $p) }}" method="POST" style="display:inline;">
+<a href="{{ route('programa.show', $p->nis) }}">Ver</a>
+<a href="{{ route('programa.edit', $p->nis) }}">Editar</a>
+<form action="{{ route('programa.destroy', $p->nis) }}" method="POST" style="display:inline;">
 @csrf
 @method('DELETE')
 <button type="submit">Eliminar</button>

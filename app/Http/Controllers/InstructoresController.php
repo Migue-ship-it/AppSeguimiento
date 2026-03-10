@@ -28,7 +28,10 @@ class InstructoresController extends Controller
         'correoinstitucional' => 'required',
         'correopersonal' => 'required',
         'sexo' => 'required',
-        'fechaNac' => 'required'
+        'fechaNac' => 'required',
+        'tbltipos_documento_nis' => 'required',
+        'tbleps_nis' => 'required',
+        'tblrolesacademicos_nis'  => 'required'
     ]);
     try {
         Instructores::create($request->all());
@@ -39,12 +42,12 @@ class InstructoresController extends Controller
     }
    public function show($nis)
     {
-        $instructores = Eps::findOrFail($nis);
+        $instructores = Instructores::findOrFail($nis);
         return view('instructores.show', compact('instructores'));
     }
    public function edit($nis)
     {
-        $instructores = Eps::findOrFail($nis);
+        $instructores = Instructores::findOrFail($nis);
         return view('instructores.edit', compact('instructores')); 
     }
     public function update(Request $request, $nis)
@@ -60,8 +63,11 @@ class InstructoresController extends Controller
         'correopersonal' => 'required',
         'sexo' => 'required',
         'fechaNac' => 'required',
+        'tbltipos_documento_nis' => 'required',
+        'tbleps_nis' => 'required',
+        'tblrolesacademicos_nis'  => 'required'
     ]);
-        $instructores = Eps::findOrFail($nis);
+        $instructores = Instructores::findOrFail($nis);
         $instructores->update($request->all());
         return redirect()->route('instructores.index')
          ->with('success', 'Registro creado correctamente');    

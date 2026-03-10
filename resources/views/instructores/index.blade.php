@@ -50,6 +50,9 @@
 <td>{{ $i->correopersonal }}</td>
 <td>{{ $i->sexo }}</td>
 <td>{{ $i->fechaNac }}</td>
+<td>{{ $i->tbltipos_documento_nis }}</td>
+<td>{{ $i->tbleps_nis }}</td>
+<td>{{ $i->tblrolesacademicos_nis }}</td>
 <td>
 <a href="{{ route('instructores.show', $i->nis) }}">Ver</a>
 <a href="{{ route('instructores.edit', $i->nis) }}">Editar</a>

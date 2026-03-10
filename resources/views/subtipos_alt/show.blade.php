@@ -15,6 +15,7 @@
 <p><strong>estado:</strong> {{ $subtipo->estado }}</p>
 <p><strong>Fecha de creacion:</strong> {{ $subtipo->created_at }}</p>
 <p><strong>Fecha de actualizacion:</strong> {{ $subtipo->updated_at }}</p>
+<p><strong>Alternativa:</strong> {{ $subtipo->tblalternativas_id_alternativa }}</p>
 <br>
 <a href="{{ route('subtipos_alt.index') }}">Volver</a>
 </body>

@@ -29,6 +29,14 @@
 <label>Observaciones:</label>
 <input type="text" name="observaciones" id="observaciones">
 <br><br>
+<select name="tblcentro_formacion_nis" id="tblcentro_formacion_nis" min="1" max="4" required>
+<option value="">Seleccione el centro de formacion que pertenece:</option>
+<option value="1">centro agricola</option>
+</select><br></br>
+<select name="tblprograma_formacion_nis" id="tblprograma_formacion_nis" min="1" max="4" required>
+<option value="">Seleccione el programa de formacion que pertenece:</option>
+<option value="1">adso</option>
+</select><br></br>
 <button type="submit">Guardar</button></form>
 <br><a href="{{ route('ficha_caracterizacion.index') }}">Volver</a>
 </body></html>

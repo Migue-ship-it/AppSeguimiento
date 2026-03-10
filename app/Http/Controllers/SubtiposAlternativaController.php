@@ -21,7 +21,8 @@ class SubtiposAlternativaController extends Controller
          $request->validate([
         'nombre' => 'required',
         'descripcion' => 'required',
-        'estado' => 'required'
+        'estado' => 'required',
+        'tblalternativas_id_alternativa' => 'required'
     ]);
     try {
         Subtipos_alternativa::create($request->all());
@@ -45,7 +46,8 @@ class SubtiposAlternativaController extends Controller
          $request->validate([
         'nombre' => 'required',
         'descripcion' => 'required',
-        'estado' => 'required'
+        'estado' => 'required',
+        'tblalternativas_id_alternativa' => 'required'
     ]);
         $subtipo = Subtipos_alternativa::findOrFail($id_subtipo);
         $subtipo->update($request->all()); 

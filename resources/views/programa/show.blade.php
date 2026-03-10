@@ -13,6 +13,6 @@
 <p><strong>denominacion:</strong> {{ $programa_formacion->denominacion }}</p>
 <p><strong>observacion:</strong> {{ $programa_formacion->observacion }}</p>
 <br>
-<a href="{{ route('programa_formacion.index') }}">Volver</a>
+<a href="{{ route('programa.index') }}">Volver</a>
 </body>
 </html>

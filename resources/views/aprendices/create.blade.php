@@ -53,6 +53,18 @@
 <label>Fecha de nacimiento:</label>
 <input type="date" name="fechaNac" id="fechaNac" required>
 <br><br>
+<select name="tbltipos_documento_nis" id="tbltipos_documento_nis" min="1" max="4" required>
+<option value="">Seleccione su tipo de documento:</option>
+<option value="1">cedula</option>
+</select><br></br>
+<select name="tbleps_nis" id="tbleps_nis" min="1" max="4" required>
+<option value="">Seleccione su EPS:</option>
+<option value="1">sanitas</option>
+</select><br></br>
+<select name="tblficha_caracterizacion_nis" id="tblficha_caracterizacion_nis" min="1" max="4" required>
+<option value="">Seleccione su ficha de caracterizacion:</option>
+<option value="1">adso</option>
+</select><br></br>
 <button type="submit">Guardar</button></form>
 <br><a href="{{ route('aprendices.index') }}">Volver</a>
 </body></html>

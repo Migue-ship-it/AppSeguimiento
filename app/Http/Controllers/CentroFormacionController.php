@@ -21,7 +21,8 @@ class CentroFormacionController extends Controller
         $request->validate([
         'codigo' => 'required',
         'denominacion' => 'required',
-        'direccion' => 'required'
+        'direccion' => 'required',
+        'tblregional_nis' => 'required'
     ]);
     try {
         Centro_formacion::create($request->all());
@@ -45,7 +46,8 @@ class CentroFormacionController extends Controller
         $request->validate([
         'codigo' => 'required',
         'denominacion' => 'required',
-        'direccion' => 'required'
+        'direccion' => 'required',
+        'tblregional_nis' => 'required'
     ]);
         $centroformacion = Centro_formacion::findOrFail($nis);
         return redirect()->route('centro_formacion.index')

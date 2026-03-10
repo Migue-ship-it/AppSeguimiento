@@ -48,10 +48,31 @@
 <option value="2">Femenino</option>
 <option value="3">Prefiero no decirlo</option>
 <option value="4">Personalizado</option>
-<br><br>
+</select><br><br>
 <label>Fecha de nacimiento:</label>
 <input type="date" name="fechaNac" id="fechaNac" required>
 <br><br>
+<select name="tbltipos_documento_nis" id="tbltipos_documento_nis" min="1" max="4" required>
+<option value="">Seleccione el tipo de documento</option>
+<option value="">Seleccione el tipo de documento</option>
+<option value="">Seleccione el tipo de documento</option>
+<option value="">Seleccione el tipo de documento</option>
+
+</select><br><br>
+<select name="tbleps_nis" id="tbleps_nis" min="1" max="4" required>
+<option value="">Seleccione la EPS que pertenece:</option>
+<option value="">Seleccione el tipo de documento</option>
+<option value="">Seleccione el tipo de documento</option>
+<option value="">Seleccione el tipo de documento</option>
+
+</select><br><br>
+<select name="tblrolesacademicos_nis" id="tblrolesacademicos_nis" min="1" max="4" required>
+<option value="">Rol academico:</option>
+<option value="">Seleccione el tipo de documento</option>
+<option value="">Seleccione el tipo de documento</option>
+<option value="">Seleccione el tipo de documento</option>
+
+</select><br><br>
 <button type="submit">Guardar</button></form>
 <br><a href="{{ route('instructores.index') }}">Volver</a>
 </body></html>

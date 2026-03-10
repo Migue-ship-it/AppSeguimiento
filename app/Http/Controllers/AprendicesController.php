@@ -28,7 +28,10 @@ class AprendicesController extends Controller
         'correoinstitucional' => 'required',
         'correopersonal' => 'required',
         'sexo' => 'required',
-        'fechaNac' => 'required'
+        'fechaNac' => 'required',
+        'tbltipos_documento_nis' => 'required',
+        'tbleps_nis' => 'required',
+        'tblficha_caracterizacion_nis'  => 'required'
     ]);
         try {
         Aprendices::create($request->all());
@@ -60,6 +63,9 @@ class AprendicesController extends Controller
         'correopersonal' => 'required',
         'sexo' => 'required',
         'fechaNac' => 'required',
+        'tbltipos_documento_nis' => 'required',
+        'tbleps_nis' => 'required',
+        'tblficha_caracterizacion_nis'  => 'required'
     ]);
         $aprendiz = Aprendices::findOrFail($nis);
         $aprendiz->update($request->all()); 

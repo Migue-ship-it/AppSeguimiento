@@ -17,7 +17,7 @@
 </ul>
 </div>
 @endif
-<form action="{{ route('programa_formacion.update', $programa_formacion->nis) }}" method="POST">
+<form action="{{ route('programa.update', $programa_formacion->nis) }}" method="POST">
 @csrf
 @method('PUT')
 <label>Codigo #:</label>
@@ -30,5 +30,5 @@
 <input type="text" name="observacion" value="{{ $programa_formacion->observacion }}" nullable> 
 <br><br>
 <button type="submit">Actualizar</button></form>
-<br><a href="{{ route('programa_formacion.index') }}">Volver</a>
+<br><a href="{{ route('programa.index') }}">Volver</a>
 </body></html>

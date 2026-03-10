@@ -9,8 +9,10 @@
 <body>
 <h1>Detalle del centro de formacion</h1>
 <p><strong>nis:</strong> {{ $centroformacion->nis }}</p>
+<p><strong>Codigo:</strong> {{ $centroformacion->codigo }}</p>
 <p><strong>denominacion:</strong> {{ $centroformacion->denominacion }}</p>
 <p><strong>Direccion:</strong> {{ $centroformacion->direccion }}</p>
+<p><strong>Regional:</strong> {{ $centroformacion->tblregional_nis}}</p>
 <br>
 <a href="{{ route('centro_formacion.index') }}">Volver</a>
 </body>

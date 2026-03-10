@@ -22,7 +22,10 @@ class FichaCaracterizacionController extends Controller
         'codigo' => 'required',
         'cupo' => 'required',
         'fecha_Inicio' => 'required',
-        'fecha_Fin' => 'required'
+        'fecha_Fin' => 'required',
+        'observaciones' => 'nullable',
+        'tblcentro_formacion_nis' => 'required',
+        'tblprograma_formacion_nis' => 'required'
     ]);
     try {Ficha_caracterizacion::create($request->all());
         return redirect()->route('ficha_caracterizacion.index')->with('success', 'Creado');
@@ -48,6 +51,9 @@ class FichaCaracterizacionController extends Controller
         'cupo' => 'required',
         'fecha_Inicio' => 'required',
         'fecha_Fin' => 'required',
+        'observaciones' => 'nullable',
+        'tblcentro_formacion_nis' => 'required',
+        'tblprograma_formacion_nis' => 'required'
     ]);
         $ficha = Ficha_caracterizacion::findOrFail($nis);
         $ficha->update($request->all()); 

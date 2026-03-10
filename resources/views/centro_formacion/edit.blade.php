@@ -20,12 +20,19 @@
 <form action="{{ route('centro_formacion.update', $centroformacion->nis) }}" method="POST">
 @csrf
 @method('PUT')
+<label>Codigo:</label>
+<input type="number" name="codigo" value="{{ $centroformacion->codigo }}" required>
+<br><br>
 <label>Denominacion:</label>
 <input type="text" name="denominacion" value="{{ $centroformacion->denominacion }}" required>
 <br><br>
 <label>Direccion:</label>
 <input type="text" name="direccion" value="{{ $centroformacion->direccion }}" required>
 <br><br>
+<select name="tblregional_nis" id="tblregional_nis" min="1" max="4" required>
+<option value="">Seleccione la regional que pertenece:</option>
+<option value="1" value="{{ $centroformacion->tblregional_nis }}">magdalena</option>
+</select><br><br>
 <button type="submit">Actualizar</button></form>
 <br><a href="{{ route('centro_formacion.index') }}">Volver</a>
 </body></html>

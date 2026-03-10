@@ -59,6 +59,18 @@
 <label>Fecha de nacimiento:</label>
 <input type="date" name="fechaNac" id="fechaNac" value="{{ $aprendiz->fechaNac }}" required>
 <br><br>
+<select name="tbltipos_documento_nis" id="tbltipos_documento_nis" min="1" max="4" required>
+<option value="">Seleccione su tipo de documento:</option>
+<option value="1" value="{{ $aprendiz->tbltipos_documento_nis }}">cedula</option>
+</select><br><br>
+<select name="tbleps_nis" id="tbleps_nis" min="1" max="4" required>
+<option value="">Seleccione su EPS:</option>
+<option value="1" value="{{ $aprendiz->tbleps_nis }}">sanitas</option>
+</select><br><br>
+<select name="tblficha_caracterizacion_nis" id="tblficha_caracterizacion_nis" min="1" max="4" required>
+<option value="">Seleccione la ficha de caracterizacion que pertenece:</option>
+<option value="1" value="{{ $aprendiz->tblficha_caracterizacion_nis }}">32144 - ODONTOLOGIA</option>
+</select><br><br>
 <button type="submit">Actualizar</button></form>
 <br><a href="{{ route('aprendices.index') }}">Volver</a>
 </body></html>

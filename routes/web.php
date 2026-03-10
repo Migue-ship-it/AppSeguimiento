@@ -22,7 +22,7 @@ Route::resource('ente_conformadores', EntecoformadoresController::class);
 Route::resource('eps', EpsController::class);
 Route::resource('ficha_caracterizacion', FichaCaracterizacionController::class);
 Route::resource('instructores', InstructoresController::class);
-Route::resource('programa_formacion', ProgramaFormacionController::class);
+Route::resource('programa', ProgramaFormacionController::class);
 Route::resource('regional', RegionalController::class);
 Route::resource('roles', RolesacademicosController::class);
 Route::resource('subtipos_alt', SubtiposAlternativaController::class);

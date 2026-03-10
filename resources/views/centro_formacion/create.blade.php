@@ -15,12 +15,19 @@
 <h1>Crear Tipos de documento</h1>
 <form action="{{ route('centro_formacion.store') }}" method="POST">
 @csrf
+<label>Codigo:</label>
+<input type="number" name="codigo" id="codigo" placeholder="#" required>
+<br><br>
 <label>Denominacion:</label>
 <input type="text" name="denominacion" id="denominacion" required>
 <br><br>
 <label>Direccion:</label>
 <input type="text" name="direccion" id="direccion" required>
 <br><br>
+<select name="tblregional_nis" id="tblregional_nis" min="1" max="4" required>
+<option value="">Seleccione la regional que pertenece:</option>
+<option value="1">magdalena</option>
+</select><br></br>
 <button type="submit">Guardar</button></form>
 <br><a href="{{ route('centro_formacion.index') }}">Volver</a>
 </body></html>

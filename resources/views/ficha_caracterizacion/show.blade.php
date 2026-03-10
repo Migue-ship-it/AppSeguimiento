@@ -14,6 +14,8 @@
 <p><strong>Fecha de inicio de la ficha::</strong> {{ $ficha->fecha_Inicio }}</p>
 <p><strong>Fecha de finalizacion:</strong> {{ $ficha->fecha_Fin }}</p>
 <p><strong>Observaciones:</strong> {{ $ficha->observaciones }}</p>
+<p><strong>Centro de formacion:</strong> {{ $ficha->tblcentro_formacion_nis }}</p>
+<p><strong>Porgrama de formacion:</strong> {{ $ficha->tblprograma_formacion_nis }}</p>
 <br>
 <a href="{{ route('ficha_caracterizacion.index') }}">Volver</a>
 </body>

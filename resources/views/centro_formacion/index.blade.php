@@ -23,8 +23,10 @@
       <thead>
 <tr>
 <th scope="col">nis</th>
+<th scope="col">Codigo #</th>
 <th scope="col">denominacion</th>
 <th scope="col">direccion</th>
+<th scope="col">Regional</th>
 <th scope="col">Acciones</th>
 </tr>
 </thead>
@@ -32,8 +34,10 @@
 @foreach($centroformacion as $centro)
 <tr>
 <td>{{ $centro->nis }}</td>
+<td>{{ $centro->codigo }}</td>
 <td>{{ $centro->denominacion }}</td>
 <td>{{ $centro->direccion }}</td>
+<td>{{ $centro->tblregional_nis }}</td>
 <td>
 <a href="{{ route('centro_formacion.show', $centro->nis) }}">Ver</a>
 <a href="{{ route('centro_formacion.edit', $centro->nis) }}">Editar</a>

@@ -28,6 +28,7 @@
 <th scope="col">estado</th>
 <th scope="col">Fecha de creacion</th>
 <th scope="col">Fecha de actualizacion</th>
+<th scope="col">Alternativa</th>
 <th scope="col">Acciones</th>
 </tr>
 </thead>
@@ -40,6 +41,7 @@
 <td>{{ $s->estado }}</td>
 <td>{{ $s->created_at }}</td>
 <td>{{ $s->updated_at }}</td>
+<td>{{ $s->tblalternativas_id_alternativa }}</td>
 <td>
 <a href="{{ route('subtipos_alt.show', $s->id_subtipo) }}">Ver</a>
 <a href="{{ route('subtipos_alt.edit', $s->id_subtipo) }}">Editar</a>

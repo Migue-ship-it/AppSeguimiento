@@ -12,7 +12,7 @@
     </div>
 @endif
 <h1>Crear Tipos de documento</h1>
-<form action="{{ route('programa_formacion.store') }}" method="POST">
+<form action="{{ route('programa.store') }}" method="POST">
 @csrf
 <label>Codigo #:</label>
 <input type="number" name="codigo" id="codigo" required>
@@ -24,5 +24,5 @@
 <input type="text" name="observacion" id="observacion">
 <br><br>
 <button type="submit">Guardar</button></form>
-<br><a href="{{ route('programa_formacion.index') }}">Volver</a>
+<br><a href="{{ route('programa.index') }}">Volver</a>
 </body></html>

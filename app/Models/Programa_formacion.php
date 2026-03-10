@@ -10,7 +10,7 @@ class Programa_formacion extends Model
 {
     use HasFactory; 
     public $timestamps = false;
-    protected $primarykey = 'nis';
+    protected $primaryKey = 'nis';
     public $incrementing = true;
     protected $keyType = 'int';
     protected $table ='tblprograma_formacion';

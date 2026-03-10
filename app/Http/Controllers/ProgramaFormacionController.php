@@ -10,11 +10,11 @@ class ProgramaFormacionController extends Controller
     public function index()
     {
         $programa_formacion = Programa_formacion::all();
-        return view('programa_formacion.index', compact('programa_formacion')); 
+        return view('programa.index', compact('programa_formacion')); 
     }
     public function create()
     {
-        return view('programa_formacion.create');
+        return view('programa.create');
     }
     public function store(Request $request)
     {
@@ -25,7 +25,7 @@ class ProgramaFormacionController extends Controller
     ]);
     try {
         Programa_formacion::create($request->all());
-        return redirect()->route('programa_formacion.index')->with('success', 'Creado');
+        return redirect()->route('programa.index')->with('success', 'Creado');
     } catch (\Exception $th) {
          return back()->with('error', 'Creado');
     }
@@ -33,12 +33,12 @@ class ProgramaFormacionController extends Controller
    public function show($nis)
     {
         $programa_formacion = Programa_formacion::findOrFail($nis);
-        return view('programa_formacion.show', compact('programa_formacion'));
+        return view('programa.show', compact('programa_formacion'));
     }
    public function edit($nis)
     {
         $programa_formacion = Programa_formacion::findOrFail($nis);
-        return view('programa_formacion.edit', compact('programa_formacion')); 
+        return view('programa.edit', compact('programa_formacion')); 
     }
     public function update(Request $request, $nis)
     {
@@ -49,14 +49,14 @@ class ProgramaFormacionController extends Controller
     ]);
         $programa_formacion = Programa_formacion::findOrFail($nis);
         $programa_formacion->update($request->all());  
-        return redirect()->route('programa_formacion.index')
+        return redirect()->route('programa.index')
          ->with('success', 'Registro creado correctamente');  
     }
     public function destroy($nis)
     {
         try {
-        $programa_formacion->delete($nis);
-        return redirect()->route('programa_formacion.index')->with('danger', 'Registro eliminado correctamente'); 
+        Programa_formacion::destroy($nis);
+        return redirect()->route('programa.index')->with('danger', 'Registro eliminado correctamente'); 
         } catch (\Exception $th) {
            return back()->with('error', 'registro eliminado');
         }
