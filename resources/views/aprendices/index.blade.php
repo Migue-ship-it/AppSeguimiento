@@ -16,6 +16,19 @@
         {{ session('danger') }}
     </div>
 @endif
+ <?php
+    $t = [1=> "Tarjeta de identidad",
+    2=> "Cédula de Ciudadanía",
+    3=> "Cédula de Extranjería",
+    4=> "Permiso por Protección Temporal(PPT)",
+    5=> "Permiso Especial de Permanencia (PEP)"
+    ];
+    $s = [1=> "Masculino",
+    2=> "Femenino",
+    3=> "Prefiero no decirlo",
+    4=> "Personalizado"
+    ];
+    ?>
 <h1>Lista de aprendices</h1>
 <a href="{{ route('aprendices.create') }}">Nuevo aprendiz</a>
 <br><br>
@@ -33,6 +46,9 @@
 <th scope="col">Correo personal</th>
 <th scope="col">Sexo</th>
 <th scope="col">Fecha de nacimiento</th>
+<th scope="col">Tipo de documento</th>
+<th scope="col">EPS</th>
+<th scope="col">Ficha de caracterizacion</th>
 <th scope="col">Acciones</th>
 </tr>
 </thead>
@@ -40,7 +56,7 @@
 @foreach($aprendiz as $a)
 <tr>
 <td>{{ $a->nis }}</td>
-<td>{{ $a->Tdoc }}</td>
+<td>{{ $t[$a->Tdoc] }}</td> 
 <td>{{ $a->Ndoc }}</td>
 <td>{{ $a->nombres }}</td>
 <td>{{ $a->apellidos }}</td>
@@ -48,7 +64,7 @@
 <td>{{ $a->telefono }}</td>
 <td>{{ $a->correoinstitucional }}</td>
 <td>{{ $a->correopersonal }}</td>
-<td>{{ $a->sexo }}</td>
+<td>{{ $s[$a->sexo] }}</td>
 <td>{{ $a->fechaNac }}</td>
 <td>{{ $a->tbltipos_documento_nis }}</td>
 <td>{{ $a->tbleps_nis }}</td>

@@ -20,7 +20,7 @@
 <option value="2">Cédula de Extranjería</option>
 <option value="3">Permiso por Protección Temporal (PPT)</option>
 <option value="4">Permiso Especial de Permanencia (PPE)</option>
-<br><br>
+</select><br><br>
 <label>No. de documento:</label>
 <input type="number" name="Ndoc" id="Ndoc" required>
 <br><br>
@@ -54,23 +54,17 @@
 <br><br>
 <select name="tbltipos_documento_nis" id="tbltipos_documento_nis" min="1" max="4" required>
 <option value="">Seleccione el tipo de documento</option>
-<option value="">Seleccione el tipo de documento</option>
-<option value="">Seleccione el tipo de documento</option>
-<option value="">Seleccione el tipo de documento</option>
+<option value="1">Cedula</option>
 
 </select><br><br>
 <select name="tbleps_nis" id="tbleps_nis" min="1" max="4" required>
 <option value="">Seleccione la EPS que pertenece:</option>
-<option value="">Seleccione el tipo de documento</option>
-<option value="">Seleccione el tipo de documento</option>
-<option value="">Seleccione el tipo de documento</option>
+<option value="1">sanitas</option>
 
 </select><br><br>
 <select name="tblrolesacademicos_nis" id="tblrolesacademicos_nis" min="1" max="4" required>
 <option value="">Rol academico:</option>
-<option value="">Seleccione el tipo de documento</option>
-<option value="">Seleccione el tipo de documento</option>
-<option value="">Seleccione el tipo de documento</option>
+<option value="1">aprendiz</option>
 
 </select><br><br>
 <button type="submit">Guardar</button></form>

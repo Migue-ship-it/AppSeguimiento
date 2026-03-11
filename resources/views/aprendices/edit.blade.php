@@ -27,15 +27,15 @@
 <option value="3" value="{{ $aprendiz->Tdoc }}">Cédula de Extranjería</option>
 <option value="4" value="{{ $aprendiz->Tdoc }}">Permiso por Protección Temporal (PPT)</option>
 <option value="5" value="{{ $aprendiz->Tdoc }}">Permiso Especial de Permanencia (PPE)</option>
-<br><br>
+</select><br><br>
 <label>No. de documento:</label>
 <input type="number" name="Ndoc" id="Ndoc" value="{{ $aprendiz->Ndoc }}" required>
 <br><br>
 <label>Nombres:</label>
-<input type="text" name="razonsocial" id="razonsocial" placeholder="Nombres y apellidos del aprendiz" value="{{ $aprendiz->razonsocial }}" required>
+<input type="text" name="nombres" id="nombres" placeholder="Nombres y apellidos del aprendiz" value="{{ $aprendiz->nombres }}" required>
 <br><br>
 <label>Apellidos:</label>
-<input type="text" name="razonsocial" id="razonsocial" placeholder="Nombres y apellidos del aprendiz" value="{{ $aprendiz->razonsocial }}" required>
+<input type="text" name="apellidos" id="apellidos" placeholder="Nombres y apellidos del aprendiz" value="{{ $aprendiz->apellidos }}" required>
 <br><br>
 <label>Direccion:</label>
 <input type="text" name="direccion" id="direccion" value="{{ $aprendiz->direccion }}" required>
@@ -55,7 +55,7 @@
 <option value="2" value="{{ $aprendiz->sexo }}">Femenino</option>
 <option value="3" value="{{ $aprendiz->sexo }}">Prefiero no decirlo</option>
 <option value="4" value="{{ $aprendiz->sexo }}">Personalizado</option>
-<br><br>
+</select><br><br>
 <label>Fecha de nacimiento:</label>
 <input type="date" name="fechaNac" id="fechaNac" value="{{ $aprendiz->fechaNac }}" required>
 <br><br>

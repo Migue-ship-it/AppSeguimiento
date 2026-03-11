@@ -12,7 +12,7 @@ class Instructores extends Model
     protected $primaryKey = 'nis';
     public $incrementing = true;
     protected $keyType = 'int';
-    protected $table = 'tblaprendices';
+    protected $table = 'tblinstructores';
      protected $fillable = ['Tdoc', 'Ndoc', 'nombres', 'apellidos',
     'direccion', 'telefono', 'correoinstitucional', 'correopersonal', 'sexo',
     'fechaNac', 'tbltipos_documento_nis', 'tbleps_nis', 'tblrolesacademicos_nis'];

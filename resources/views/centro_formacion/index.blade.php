@@ -16,6 +16,14 @@
         {{ session('danger') }}
     </div>
 @endif
+ <?php
+    $r = [1=> "Amazonas",
+    2=> "Antioquia",
+    3=> "Arauca",
+    4=> "Atlantico",
+    5=> "Magdalena"
+    ];
+    ?>
 <h1>Lista de centros de formacion</h1>
 <a href="{{ route('centro_formacion.create') }}">Nuevo Tipo</a>
 <br><br>
@@ -37,7 +45,7 @@
 <td>{{ $centro->codigo }}</td>
 <td>{{ $centro->denominacion }}</td>
 <td>{{ $centro->direccion }}</td>
-<td>{{ $centro->tblregional_nis }}</td>
+<td>{{$r[$centro->tblregional_nis] }}</td>
 <td>
 <a href="{{ route('centro_formacion.show', $centro->nis) }}">Ver</a>
 <a href="{{ route('centro_formacion.edit', $centro->nis) }}">Editar</a>

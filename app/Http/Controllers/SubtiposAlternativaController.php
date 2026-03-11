@@ -31,12 +31,14 @@ class SubtiposAlternativaController extends Controller
          return back()->with('error', 'Creado');
     }
     }
-    public function show($id)
+
+    public function show($id_subtipo)
     {
         $subtipo = Subtipos_alternativa::findOrFail($id_subtipo);
         return view('subtipos_alt.show', compact('subtipo'));
     }
-   public function edit($id)
+    
+   public function edit($id_subtipo)
     {
         $subtipo = Subtipos_alternativa::findOrFail($id_subtipo);
         return view('subtipos_alt.edit', compact('subtipo')); 

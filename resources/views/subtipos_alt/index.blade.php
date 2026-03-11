@@ -16,6 +16,11 @@
         {{ session('danger') }}
     </div>
 @endif
+<?php
+    $alt = [1=> "Pasantia",
+    2=> "...de aprendizaje"
+    ];
+    ?>
 <h1>Lista de subtipos de alternativa</h1>
 <a href="{{ route('subtipos_alt.create') }}">Nuevo subtipo</a>
 <br><br>
@@ -41,7 +46,7 @@
 <td>{{ $s->estado }}</td>
 <td>{{ $s->created_at }}</td>
 <td>{{ $s->updated_at }}</td>
-<td>{{ $s->tblalternativas_id_alternativa }}</td>
+<td>{{ $alt[$s->tblalternativas_id_alternativa] }}</td>
 <td>
 <a href="{{ route('subtipos_alt.show', $s->id_subtipo) }}">Ver</a>
 <a href="{{ route('subtipos_alt.edit', $s->id_subtipo) }}">Editar</a>

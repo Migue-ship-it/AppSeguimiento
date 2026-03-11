@@ -16,6 +16,14 @@
         {{ session('danger') }}
     </div>
 @endif
+<?php
+    $c = [1=> "CLPEM - Centro de Logistica y Promocion Ecoturistica del Magdalena",
+    2=> "fs"
+    ];
+    $p = [1=> "ADSO- Analisis y desarrollo de software",
+    2=> "f"
+    ];
+    ?>
 <h1>Lista de fichas de caracterizacion</h1>
 <a href="{{ route('ficha_caracterizacion.create') }}">Nueva ficha</a>
 <br><br>
@@ -28,6 +36,8 @@
 <th scope="col">Fecha de inicio de la ficha</th>
 <th scope="col">Fecha de finalizacion</th>
 <th scope="col">Observaciones</th>
+<th scope="col">Centro de formacion</th>
+<th scope="col">Programa de formacion</th>
 <th scope="col">Acciones</th>
 </tr>
 @foreach($ficha as $caracterizacion)
@@ -38,8 +48,8 @@
 <td>{{ $caracterizacion->fecha_Inicio }}</td>
 <td>{{ $caracterizacion->fecha_Fin }}</td>
 <td>{{ $caracterizacion->observaciones }}</td>
-<td>{{ $caracterizacion->tblcentro_formacion_nis }}</td>
-<td>{{ $caracterizacion->tblprograma_formacion_nis }}</td>
+<td>{{ $c[$caracterizacion->tblcentro_formacion_nis] }}</td>
+<td>{{ $p[$caracterizacion->tblprograma_formacion_nis] }}</td>
 <td>
 <a href="{{ route('ficha_caracterizacion.show', $caracterizacion->nis) }}">Ver</a>
 <a href="{{ route('ficha_caracterizacion.edit', $caracterizacion->nis) }}">Editar</a>

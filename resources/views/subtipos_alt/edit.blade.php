@@ -17,20 +17,20 @@
 </ul>
 </div>
 @endif
-<form action="{{ route('subtipos_alt.update', $subtipo->nis) }}" method="POST">
+<form action="{{ route('subtipos_alt.update', $subtipo->id_subtipo) }}" method="POST">
 @csrf
 @method('PUT')
 <label>Nombre:</label>
-<input type="text" name="nombre" value="{{ $subtipo->nombre) }}" required>
+<input type="text" name="nombre" value="{{ $subtipo->nombre }}" required>
 <br><br>
 <label>Descripcion:</label>
-<input type="text" name="descripcion" value="{{$subtipo->descripcion) }}" required>
+<input type="text" name="descripcion" value="{{$subtipo->descripcion }}" required>
 <br><br>
 <label>Estado:</label>
 <select name="estado" required>
 <option value="">Seleccione el estado</option>
-<option value="activo" value="{{ $subtipo->estado) }}">Activo</option>
-<option value="inactivo" value="{{ $subtipo->estado) }}">Inactivo</option>
+<option value="activo" value="{{ $subtipo->estado }}">Activo</option>
+<option value="inactivo" value="{{ $subtipo->estado }}">Inactivo</option>
 </select><br><br>
 <select name="tblalternativas_id_alternativa" id="tblalternativas_id_alternativa" min="1" max="4" required>
 <option value="">Seleccione la alternativa que pertenece:</option>
