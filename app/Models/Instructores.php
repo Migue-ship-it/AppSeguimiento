@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
+
 
 class Instructores extends Model
 {
+    use Notifiable;
+
     use HasFactory;
     public $timestamps = false;
     protected $primaryKey = 'nis';
@@ -25,4 +29,9 @@ class Instructores extends Model
     public function eps(){
         return $this -> belongsTo (Eps:: class, 'tbleps_nis');
     }
+
+    public function routeNotificationForMail($notification){
+        return $this -> correoinstitucional;
+    }
+
 }

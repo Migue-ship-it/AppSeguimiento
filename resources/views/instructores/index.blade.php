@@ -67,7 +67,7 @@
 <td>{{ $i->correopersonal }}</td>
 <td>{{ $i->sexo }}</td>
 <td>{{ $i->fechaNac }}</td>
-<td>{{ $t{$i->tbltipos_documento_nis} }}</td>
+<td>{{ $t[$i->tbltipos_documento_nis] }}</td>
 <td>{{ $e[$i->tbleps_nis] }}</td>
 <td>{{ $r[$i->tblrolesacademicos_nis] }}</td>
 <td>

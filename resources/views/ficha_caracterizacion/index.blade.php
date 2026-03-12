@@ -17,8 +17,8 @@
     </div>
 @endif
 <?php
-    $c = [1=> "CLPEM - Centro de Logistica y Promocion Ecoturistica del Magdalena",
-    2=> "fs"
+    $c = [1=> "centro agricola",
+    2=> "CLPEM - Centro de Logistica y Promocion Ecoturistica del Magdalena"
     ];
     $p = [1=> "ADSO- Analisis y desarrollo de software",
     2=> "f"

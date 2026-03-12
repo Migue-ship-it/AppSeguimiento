@@ -13,7 +13,7 @@ return [
     | "mailers" array. Examples of each type of mailer are provided.
     |
     */
-
+ //Revisar el default cambiando log por smtp para terminar prueba y aplicar transporte para envios de correos
     'default' => env('MAIL_MAILER', 'log'),
 
     /*

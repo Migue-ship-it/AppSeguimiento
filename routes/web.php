@@ -15,6 +15,7 @@ use App\Http\Controllers\SubtiposAlternativaController;
 use App\Http\Controllers\TiposDocumentoController;
 use App\Http\Controllers\BitacorasController;
 use App\Http\Controllers\AuthController;
+//use App\Http\Controllers\AuthController;
 Route::resource('alternativas', AlternativasController::class);
 Route::resource('aprendices', AprendicesController::class);
 Route::resource('centro_formacion', CentroFormacionController::class);
@@ -28,6 +29,7 @@ Route::resource('roles', RolesacademicosController::class);
 Route::resource('subtipos_alt', SubtiposAlternativaController::class);
 Route::resource('tipos_doc', TiposDocumentoController::class);
 Route::resource('bitacoras', BitacorasController::class);
+//Route::resource('bitacoras', BitacorasController::class);
 
 Route::middleware('guest')->group(function () { //invitado o recien al registrarse
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
