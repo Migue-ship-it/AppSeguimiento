@@ -7,14 +7,11 @@
 <script src="https://cdn.jsdelivr.net" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </head>
 <body>
-     @if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
-<h1>Hola {{ $instructor->nombres }} {{ $instructor->apellidos }}</h1>
+ 
+
+<h1>Hola </h1>
 <p>Bienvenido.</p>
-<p>Tu correo institucional es: {{ $instructor->correoinstitucional }}</p>
+<p>Tu correo institucional es: </p>
 <p>Descripcion (correo de prueba) relacionada a una alternativa: {{ $descripcion }}</p>
 
 </body>

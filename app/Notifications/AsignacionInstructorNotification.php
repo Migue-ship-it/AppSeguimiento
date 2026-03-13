@@ -11,9 +11,11 @@ class AsignacionInstructorNotification extends Notification
 {
     use Queueable;
     public $descripcion;
+    public $instructor;
 
-    public function __construct($descripcion)
+    public function __construct($instructor, $descripcion)
     {
+        $this->instructor = $instructor;
         $this->descripcion = $descripcion;
     }
     public function via($notifiable)
@@ -25,9 +27,8 @@ class AsignacionInstructorNotification extends Notification
         return (new MailMessage)
                     ->subject('Te notifico esto.')
                     ->view('email.envioInstructores', [
-                        'instructor' => $notifiable,
+                        'instructor' => $this->$instructor,
                         'descripcion' => $this->$descripcion
-                    ])
-                    ->line('Si llego el correo lee esta linea');
+                    ]);
     }
 }

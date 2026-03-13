@@ -2,8 +2,10 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Instructores;
+use App\Models\Alternativas;
 use Illuminate\Http\Request;
 use App\Notifications\AsignacionInstructorNotification;
+use Illuminate\Support\Facades\DB;
 
 class InstructoresController extends Controller{
 
@@ -35,16 +37,34 @@ class InstructoresController extends Controller{
         'tbleps_nis' => 'required',
         'tblrolesacademicos_nis' => 'required'
         ]);
+
+
+
+           DB::beginTransaction();
+
         try {
             $instructor = Instructores::create($request->all());
-            $instructor->notify(new AsignacionInstructorNotification($descripcion));
+
+            $seleccion_descripcion = Alternativas::find(1);
+            if ($seleccion_descripcion->descripcion) {
+            $descripcion = $seleccion_descripcion->descripcion;
+            }
+            else{
+            $descripcion = "hola";
+            }
+            DB::commit();
+
+          $instructor->notify(new AsignacionInstructorNotification($instructor, $descripcion));
+
+          
             return redirect()->route('instructores.index')
             ->with('success', 'Creado');
             } catch (\Exception $th) {
-                dd($th->getMessage());
+                DB::rollBack();
+                return dd($th->getmessage());
              //return back()->with('error', 'Error al crear registro');
-             }
-             }
+            }
+    }
     public function show($nis)
     {
         $instructores = Instructores::findOrFail($nis);
@@ -74,11 +94,11 @@ class InstructoresController extends Controller{
              'tblrolesacademicos_nis' => 'required'
              ]);
 
-             $instructores = Instructores::findOrFail($nis);
-             $instructores->update($request->all());
-              return redirect()->route('instructores.index')
-              ->with('success', 'Registro actualizado correctamente');
-              }
+        $instructores = Instructores::findOrFail($nis);
+        $instructores->update($request->all());
+        return redirect()->route('instructores.index')
+        ->with('success', 'Registro actualizado correctamente');
+    }
               
     public function destroy($nis)
     {
