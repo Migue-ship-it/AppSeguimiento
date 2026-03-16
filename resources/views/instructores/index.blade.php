@@ -16,20 +16,6 @@
         {{ session('danger') }}
     </div>
 @endif
-<?php
-    $t = [1=> "Cédula de Ciudadanía",
-    2=> "Cédula de Extranjería",
-    3=> "Permiso por Protección Temporal(PPT)",
-    4=> "Permiso Especial de Permanencia (PEP)"
-    ];
-    $e = [1=> "Sanitas",
-    2=> "SaludTotal"
-    ];
-     $r = [1=> "instructor",
-    2=> "aprendiz",
-    3=> "ente coformador"
-    ];
-    ?>
 <h1>Lista de instructores</h1>
 <a href="{{ route('instructores.create') }}">Nuevo instructor</a>
 <br><br>
@@ -47,7 +33,6 @@
 <th scope="col">Correo electronico</th>
 <th scope="col">Sexo</th>
 <th scope="col">Fecha de nacimiento</th>
-<th scope="col">Tipo de documento</th>
 <th scope="col">EPS</th>
 <th scope="col">Rol academico</th>
 <th scope="col">Acciones</th>
@@ -57,7 +42,7 @@
 @foreach($instructores as $i)
 <tr>
 <td>{{ $i->nis }}</td>
-<td>{{ $i->Tdoc }}</td>
+<td>{{ $i->tipos_documento->denominacion ?? ''}}</td>
 <td>{{ $i->Ndoc }}</td>
 <td>{{ $i->nombres }}</td>
 <td>{{ $i->apellidos }}</td>
@@ -67,9 +52,8 @@
 <td>{{ $i->correopersonal }}</td>
 <td>{{ $i->sexo }}</td>
 <td>{{ $i->fechaNac }}</td>
-<td>{{ $t[$i->tbltipos_documento_nis] }}</td>
-<td>{{ $e[$i->tbleps_nis] }}</td>
-<td>{{ $r[$i->tblrolesacademicos_nis] }}</td>
+<td>{{ $i->eps->denominacion ?? ''}}</td>
+<td>{{ $i->rolesacademicos->descripcion ?? ''}}</td>
 <td>
 <a href="{{ route('instructores.show', $i->nis) }}">Ver</a>
 <a href="{{ route('instructores.edit', $i->nis) }}">Editar</a>

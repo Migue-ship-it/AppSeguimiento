@@ -27,8 +27,8 @@ class AsignacionInstructorNotification extends Notification
         return (new MailMessage)
                     ->subject('Te notifico esto.')
                     ->view('email.envioInstructores', [
-                        'instructor' => $this->$instructor,
-                        'descripcion' => $this->$descripcion
+                        'instructor' => $this->instructor,
+                        'descripcion' => $this->descripcion
                     ]);
     }
 }

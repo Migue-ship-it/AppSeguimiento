@@ -9,7 +9,7 @@
 <body>
 <h1>Detalle del instructor</h1>
 <p><strong>nis:</strong> {{ $instructores->nis }}</p>
-<p><strong>Tipo de documento:</strong> {{ $instructores->Tdoc }}</p>
+<p><strong>Tipo de documento:</strong> {{ $instructores->tipos_documento->denominacion }}</p>
 <p><strong>No. de documento:</strong> {{ $instructores->Ndoc }}</p>
 <p><strong>Nombres del instructor:</strong> {{ $instructores->nombres }}</p>
 <p><strong>Apellidos del instructor:</strong> {{ $instructores->apellidos }}</p>
@@ -19,9 +19,8 @@
 <p><strong>Correo electronico:</strong> {{ $instructores->correopersonal }}</p>
 <p><strong>Tipo de sexo:</strong> {{ $instructores->sexo }}</p>
 <p><strong>Fecha de nacimiento:</strong> {{ $instructores->fechaNac }}</p>
-<p><strong>Tipo de documento:</strong> {{ $instructores->tbltipos_documento_nis }}</p>
-<p><strong>EPS:</strong> {{ $instructores->tbleps_nis }}</p>
-<p><strong>Rol:</strong> {{ $instructores->tblrolesacademicos_nis }}</p>
+<p><strong>EPS:</strong> {{ $instructores->eps->denominacion }}</p>
+<p><strong>Rol:</strong> {{ $instructores->rolesacademicos->descripcion }}</p>
 <br>
 <a href="{{ route('instructores.index') }}">Volver</a>
 </body>

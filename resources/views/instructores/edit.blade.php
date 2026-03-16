@@ -20,22 +20,20 @@
 <form action="{{ route('instructores.update', $instructores->nis) }}" method="POST">
 @csrf
 @method('PUT')
-<select name="Tdoc" id="Tdoc" min="1" max="4" required>
+<select name="tbltipos_documento_nis" id="tbltipos_documento_nis" required>
 <option value="">Seleccione el tipo de documento</option>
-<option value="1" value="{{ $instructores->Tdoc }}">Cédula de Ciudadanía</option>
-<option value="2" value="{{ $instructores->Tdoc }}">Cédula de Extranjería</option>
-<option value="3" value="{{ $instructores->Tdoc }}">Permiso por Protección Temporal (PPT)</option>
-<option value="4" value="{{ $instructores->Tdoc }}">Permiso Especial de Permanencia (PPE)
-</option>
-<br><br>
+@foreach($tipos_documento as $t)
+<option value="{{ $instructores->tbltipos_documento_nis == $t->nis ? 'selected' : '' }}">{{ $t->denominacion}}</option>
+@endforeach
+</select><br><br>
 <label>No. de documento:</label>
 <input type="number" name="Ndoc" value="{{ $instructores->Ndoc }}" required>
 <br><br>
 <label>Nombres:</label>
-<input type="text" name="nombres" placeholder="Nombres completos del instructor" value="{{ $instructores->razonsocial }}" required>
+<input type="text" name="nombres" placeholder="Nombres completos del instructor" value="{{ $instructores->nombres }}" required>
 <br><br>
 <label>Apellidos:</label>
-<input type="text" name="apellidos" placeholder="Apellidos completos del instructor" value="{{ $instructores->razonsocial }}" required>
+<input type="text" name="apellidos" placeholder="Apellidos completos del instructor" value="{{ $instructores->apellidos }}" required>
 <br><br>
 <label>Direccion:</label>
 <input type="text" name="direccion" value="{{ $instructores->direccion }}" required>
@@ -47,7 +45,7 @@
 <input type="text" name="correoinstitucional" placeholder="usuario@sena.edu.co" value="{{ $instructores->correoinstitucional }}" required>
 <br><br>
 <label>Correo electronico:</label>
-<input type="text" name="correopersonal" placeholder="usuario@gmail/hotmail.com" value="{{ $instructores->correoinstitucional }}" required>
+<input type="text" name="correopersonal" placeholder="usuario@gmail/hotmail.com" value="{{ $instructores->correopersonal }}" required>
 <br><br>
 <select name="sexo" id="sexo" min="1" max="4" required>
 <option value="">Seleccione su sexo</option>
@@ -59,17 +57,17 @@
 <label>Fecha de nacimiento:</label>
 <input type="date" name="fechaNac" value="{{ $instructores->fechaNac }}" required>
 <br><br>
-<select name="tbltipos_documento_nis" id="tbltipos_documento_nis" min="1" max="4" required>
-<option value="">Seleccione su tipo de documento:</option>
-<option value="1" value="{{ $instructores->tbltipos_documento_nis }}"> Cedula</option>
-</select><br><br>
-<select name="tbleps_nis" id="tbleps_nis" min="1" max="4" required>
+<select name="tbleps_nis" id="tbleps_nis" required>
 <option value="">Seleccione la EPS que pertenece:</option>
-<option value="1" value="{{ $instructores->tbleps_nis }}">sanitas</option>
+@foreach($eps as $e)
+<option value="{{ $instructores->tbleps_nis == $e->nis ? 'selected' : ''}}">{{ $e->denominacion}}</option>
+@endforeach
 </select><br><br>
-<select name="tblrolesacademicos_nis" id="tblrolesacademicos_nis" min="1" max="4" required>
+<select name="tblrolesacademicos_nis" id="tblrolesacademicos_nis" required>
 <option value="">Seleccione su rol academico:</option>
-<option value="1" value="{{ $instructores->tblrolesacademicos_nis }}">aprendiz</option>
+@foreach($rolesacademicos as $r)
+<option value="{{ $instructores->tblrolesacademicos_nis == $r->nis ? 'selected' : ''}}">{{ $r->descripcion}}</option>
+@endforeach
 </select><br><br>
 <button type="submit">Actualizar</button></form>
 <br><a href="{{ route('instructores.index') }}">Volver</a>
