@@ -58,10 +58,8 @@ class InstructoresController extends Controller{
             $descripcion = "hola";
             }*/
             DB::commit();
-
           $instructor->notify(new AsignacionInstructorNotification($instructor));
-
-          
+          dd($instructor->correoinstitucional);
             return redirect()->route('instructores.index')
             ->with('success', 'Creado');
             } catch (\Exception $th) {

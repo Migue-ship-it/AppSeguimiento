@@ -19,7 +19,10 @@ class AuthController extends Controller
             'documento' => 'required',
             'password' => 'required',
         ]);
-        if (Auth::attempt($credenciales)) {
+        if (Auth::attempt([
+            'documento' => $request->documento,
+            'password' => $request->password
+        ])) {
             $request->session()->regenerate();
             return redirect()->route('dashboard')->with('success', 'Bienvenido!');
         }

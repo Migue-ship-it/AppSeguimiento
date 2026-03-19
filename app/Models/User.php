@@ -29,6 +29,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function getAuthIdentifierName() {
+    return 'documento';
+}
     public function bitacoras(){
         return $this ->hasMany(Bitacoras:: class, 'id_login');
 }

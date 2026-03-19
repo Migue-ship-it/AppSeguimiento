@@ -39,7 +39,7 @@ class BitacorasController extends Controller
     }
     public function edit(Bitacoras $bitacora)
     {
-        if ($bitacora ->id_login!== Auth::id());{
+        if ($bitacora ->id_login!== Auth::id()){
             abort(403);
             //dd($bitacora); revision de variables  
         }        
@@ -47,24 +47,31 @@ class BitacorasController extends Controller
     }
     public function update(Request $request, Bitacoras $bitacora)
     {
-    if ($bitacora ->id_login!== Auth::id());{
+    if ($bitacora ->id_login!== Auth::id()){
             abort(403);//mensaje de error de existencia de id para la muestra de bitacora
         }
          $request->validate([
         'file' => 'nullable|file|mimes:pdf|max:2048'
-    ]);       
-    if(file::exists(public_path($bitacora->file))) { //reemplazar pdf anterior con cambios registrados
-        file::delete(public_path($bitacora->file));
-    }
+    ]);  
+    try {
+         if ($request->hasFile('file')) {
+        // borrar archivo antiguo si existe
+        if (File::exists(public_path($bitacora->file))) {
+            File::delete(public_path($bitacora->file));
+        }
         $nombreArchivo = 'bit_' . Auth::id(). '_' . time() . '.pdf';
 
         $request->file('file')->move(
         public_path('/uploads/bitacora/'), $nombreArchivo);
 
         $bitacora->update([
-        'file' => '/uploads/bitacora/', $nombreArchivo]);    
+        'file' => '/uploads/bitacora/'. $nombreArchivo]); 
+    }   
          return redirect()->route('bitacoras.index')
          ->with('success', 'Registro creado correctamente');
+    } catch (\Exception $th) {
+        return back()->with('error', 'registro eliminado');
+    }   
     }
     public function destroy(Bitacoras $bitacora)
     {
@@ -81,7 +88,7 @@ class BitacorasController extends Controller
     $bitacora->delete();
     return redirect()->route('bitacoras.index')->with('danger', 'Registro eliminado correctamente'); 
     } catch (\Exception $th) {
-        return back()->with('error', 'registro eliminado');
+        return back()->with('error', 'error de registro a eliminar');
     }
     }
 }
