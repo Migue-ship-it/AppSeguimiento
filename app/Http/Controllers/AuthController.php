@@ -17,14 +17,14 @@ class AuthController extends Controller
     {
         $credenciales = $request->validate([
             'documento' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ]);
         if (Auth::attempt($credenciales)) {
             $request->session()->regenerate();
             return redirect()->route('dashboard')->with('success', 'Bienvenido!');
         }
         return back()->withErrors([
-            'documento' => 'Credenciales incorrectas',
+            'documento' => 'Credenciales incorrectas'
         ]);
     }
     public function showRegister()
@@ -36,12 +36,12 @@ class AuthController extends Controller
         $request->validate([
             'documento' => 'required|unique:users,documento',
             'name' => 'required',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6|confirmed'
         ]);
         User::create([
             'documento' => $request->documento,
             'name' => $request->name,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($request->password)
         ]);
         return redirect()->route('login')->with('success', "Usuario registrado");
     }

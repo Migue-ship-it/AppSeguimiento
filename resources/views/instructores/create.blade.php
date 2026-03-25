@@ -16,7 +16,7 @@
 <form action="{{ route('instructores.store') }}" method="POST">
 @csrf
 <select name="tbltipos_documento_nis" id="tbltipos_documento_nis" required>
-<option value="">Seleccione el tipo de documento
+<option value="">Seleccione el tipo de documento</option>
 @foreach($tipos_documento as $t)
 <option value="{{ $t->nis}}">{{ $t->denominacion}}</option>
 @endforeach
@@ -42,7 +42,7 @@
 <label>Correo electronico:</label>
 <input type="text" name="correopersonal" id="correopersonal" placeholder="usuario@gmail/hotmail.com" required>
 <br><br>
-<select name="sexo" id="sexo" min="1" max="4" required>
+<select name="sexo" id="sexo" required>
 <option value="">Seleccione su sexo</option>
 <option value="1">Masculino</option>
 <option value="2">Femenino</option>
@@ -52,7 +52,6 @@
 <label>Fecha de nacimiento:</label>
 <input type="date" name="fechaNac" id="fechaNac" required>
 <br><br>
-
 <select name="tbleps_nis" id="tbleps_nis" required>
 <option value="">Seleccione la EPS que pertenece:</option>
 @foreach($eps as $e)

@@ -28,9 +28,9 @@ class InstructoresController extends Controller{
     public function store(Request $request)
     {
     $request->validate([
-        'tbltipos_documento_nis' => 'required|exists: tbltipos_documento, nis',
-        'tbleps_nis' => 'required|exists: tbleps, nis',
-        'tblrolesacademicos_nis' => 'required|exists: tblrolesacademicos, nis',
+        'tbltipos_documento_nis' => 'required|exists:tbltipos_documento,nis',
+        'tbleps_nis' => 'required|exists:tbleps,nis',
+        'tblrolesacademicos_nis' => 'required|exists:tblrolesacademicos,nis',
         'Ndoc' => 'required',
         'nombres' => 'required',
         'apellidos' => 'required',
@@ -45,18 +45,7 @@ class InstructoresController extends Controller{
 
         try {
             $tipos_documento = Tipos_documento::find($request->tbltipos_documento_nis);
-            $request->merge([
-                'Tdoc' => $tipos_documento->denominacion
-            ]);
             $instructor = Instructores::create($request->all());
-
-            /*$seleccion_descripcion = Alternativas::find(1);
-            if ($seleccion_descripcion->descripcion) {
-            $descripcion = $seleccion_descripcion->descripcion;
-            }
-            else{
-            $descripcion = "hola";
-            }*/
             DB::commit();
 
           $instructor->notify(new AsignacionInstructorNotification($instructor));
@@ -87,10 +76,9 @@ class InstructoresController extends Controller{
     public function update(Request $request, $nis)
     {
         $request->validate([
-            'tbltipos_documento_nis' => 'required|exists: tbltipos_documento, nis',
-            'tbleps_nis' => 'required|exists: tbleps, nis',
-            'tblrolesacademicos_nis' => 'required|exists: tblrolesacademicos, nis',
-            'Tdoc' => 'required',
+            'tbltipos_documento_nis' => 'required|exists:tbltipos_documento,nis',
+            'tbleps_nis' => 'required|exists:tbleps,nis',
+            'tblrolesacademicos_nis' => 'required|exists:tblrolesacademicos,nis',
              'Ndoc' => 'required',
              'nombres' => 'required',
              'apellidos' => 'required',

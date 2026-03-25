@@ -38,40 +38,35 @@ class BitacorasController extends Controller
         return view('bitacoras.show', compact('bitacora'));
     }
     public function edit(Bitacoras $bitacora)
-    {
-        if ($bitacora ->id_login!== Auth::id());{
-            abort(403);
-            //dd($bitacora); revision de variables  
-        }        
+    {   
         return view('bitacoras.edit', compact('bitacora'));
     }
     public function update(Request $request, Bitacoras $bitacora)
     {
-    if ($bitacora ->id_login!== Auth::id());{
-            abort(403);//mensaje de error de existencia de id para la muestra de bitacora
-        }
          $request->validate([
         'file' => 'nullable|file|mimes:pdf|max:2048'
-    ]);       
-    if(file::exists(public_path($bitacora->file))) { //reemplazar pdf anterior con cambios registrados
+    ]);
+    if ($request->hasFile('file')) {
+        if(file::exists(public_path($bitacora->file))) { //reemplazar pdf anterior con cambios registrados
         file::delete(public_path($bitacora->file));
-    }
-        $nombreArchivo = 'bit_' . Auth::id(). '_' . time() . '.pdf';
+        }
+         $nombreArchivo = 'bit_' . Auth::id(). '_' . time() . '.pdf';
 
         $request->file('file')->move(
         public_path('/uploads/bitacora/'), $nombreArchivo);
 
         $bitacora->update([
-        'file' => '/uploads/bitacora/', $nombreArchivo]);    
+        'file' => '/uploads/bitacora/'. $nombreArchivo]);    
          return redirect()->route('bitacoras.index')
          ->with('success', 'Registro creado correctamente');
+    }       
     }
     public function destroy(Bitacoras $bitacora)
     {
     try {
-    if ($bitacora->id_login !== Auth::id()) {
+    /*if ($bitacora->id_login !== Auth::id()) {
         abort(403);
-    }
+    }*/
     if ((!empty($bitacora->file))) {
         $ruta = public_path($bitacora->file);
         if (file_exists($ruta) && is_file($ruta)) {

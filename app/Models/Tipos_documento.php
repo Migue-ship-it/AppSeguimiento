@@ -16,10 +16,8 @@ class Tipos_documento extends Model
     
     protected $table = 'tbltipos_documento';
      
-     protected $fillable = [
-        'denominacion'
-        ];
-     public function instructores(){
+    protected $fillable = ['denominacion', 'observacion'];
+    public function instructores(){
         return $this -> hasMany (Instructores:: class, 'tbltipos_documento_nis');
     }
 }

@@ -19,16 +19,33 @@ class AlternativasController extends Controller
     }
     public function store(Request $request)
     {
+        $palabrasPermitidas = [
+            'Contrato de Aprendizaje',
+            'Pasantia',
+            'Proyecto Productivo',
+            'Creación de una unidad productiva',
+            'Servicio Militar',
+            'Vinculacion laboral'
+        ];
     $request->validate([
-        'nombre' => 'required',
-        'descripcion' => 'required',
-        'estado' => 'required'
+        'nombre' => ['required','string','max:100', function ($attribute, $value, $fail) use ($palabrasPermitidas) {
+                    $esValido = collect($palabrasPermitidas)
+                        ->map(fn($p) => strtolower($p))
+                        ->contains(strtolower($value));
+                    if (!$esValido) {
+                        $fail("La descripción no es válida. Solo se permiten: " . implode(', ', $palabrasPermitidas));
+                    }
+                },
+            ],
+        'descripcion' => 'required|string|max:200',
+        'estado' => 'required|in:activo,inactivo'
         ]);
         try {
-        Alternativas::create($request->all());
+        Alternativas::create($request->only('nombre','descripcion','estado'));
         return redirect()->route('alternativas.index') ->with('success', 'Registro creado correctamente');
        } catch (\Exception $e) {
-         return back()->with('error', 'Creado');
+        \Log::error('Error al crear Alternativa: ' . $e->getMessage());
+         return back()->with('error', 'Ocurrió un error al crear el registro');
        }
     }
     public function show($id_alternativa)
@@ -43,15 +60,34 @@ class AlternativasController extends Controller
     }
     public function update(Request $request, $id_alternativa)
     {
-        $request->validate([
-        'nombre' => 'required',
-        'descripcion' => 'required',
-        'estado' => 'required'
-    ]);
-        $alternativa = Alternativas::findOrFail($id_alternativa);
-        $alternativa->update($request->all());
-         return redirect()->route('alternativas.index')
-         ->with('success', 'Registro creado correctamente');
+        $palabrasPermitidas = [
+            'Contrato de Aprendizaje',
+            'Pasantia',
+            'Proyecto Productivo',
+            'Creación de una unidad productiva',
+            'Servicio Militar',
+            'Vinculacion laboral'
+        ];
+       $request->validate([
+        'nombre' => ['required','string','max:100', function ($attribute, $value, $fail) use ($palabrasPermitidas) {
+                    $esValido = collect($palabrasPermitidas)
+                        ->map(fn($p) => strtolower($p))
+                        ->contains(strtolower($value));
+                    if (!$esValido) {
+                        $fail("La descripción no es válida. Solo se permiten: " . implode(', ', $palabrasPermitidas));
+                    }
+                },
+            ],
+        'descripcion' => 'required|string|max:200',
+        'estado' => 'required|in:activo,inactivo'
+        ]);
+         try {
+        Alternativas::create($request->only('nombre','descripcion','estado'));
+        return redirect()->route('alternativas.index') ->with('success', 'Registro creado correctamente');
+       } catch (\Exception $e) {
+        \Log::error('Error al crear Alternativa: ' . $e->getMessage());
+         return back()->with('error', 'Ocurrió un error al crear el registro');
+       }
     }
     public function destroy($id_alternativa)
     {
@@ -59,6 +95,7 @@ class AlternativasController extends Controller
         Alternativas::destroy($id_alternativa);
         return redirect()->route('alternativas.index')->with('danger', 'Registro eliminado correctamente');
         } catch (\Exception $th) {
+            \Log::error('Error al eliminar Alternativa: ' . $e->getMessage());
             return back()->with('error', 'registro eliminado');
         }
     }

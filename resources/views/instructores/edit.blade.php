@@ -23,7 +23,7 @@
 <select name="tbltipos_documento_nis" id="tbltipos_documento_nis" required>
 <option value="">Seleccione el tipo de documento</option>
 @foreach($tipos_documento as $t)
-<option value="{{ $instructores->tbltipos_documento_nis == $t->nis ? 'selected' : '' }}">{{ $t->denominacion}}</option>
+<option value="{{ $t->nis}}">{{ $instructores->tbltipos_documento_nis == $t->nis ? 'selected' : '' }}>{{ $t->denominacion}}</option>
 @endforeach
 </select><br><br>
 <label>No. de documento:</label>
@@ -47,12 +47,12 @@
 <label>Correo electronico:</label>
 <input type="text" name="correopersonal" placeholder="usuario@gmail/hotmail.com" value="{{ $instructores->correopersonal }}" required>
 <br><br>
-<select name="sexo" id="sexo" min="1" max="4" required>
+<select name="sexo" id="sexo" required>
 <option value="">Seleccione su sexo</option>
-<option value="1" value="{{ $instructores->sexo }}" >Masculino</option>
-<option value="2" value="{{ $instructores->sexo }}">Femenino</option>
-<option value="3" value="{{ $instructores->sexo }}">Prefiero no decirlo</option>
-<option value="4" value="{{ $instructores->sexo }}">Personalizado</option>
+<option value="1" value="{{ $instructores->sexo == 1 ? 'selected' : '' }}" >Masculino</option>
+<option value="2" value="{{ $instructores->sexo == 2 ? 'selected' : '' }}">Femenino</option>
+<option value="3" value="{{ $instructores->sexo == 3 ? 'selected' : '' }}">Prefiero no decirlo</option>
+<option value="4" value="{{ $instructores->sexo == 4 ? 'selected' : '' }}">Personalizado</option>
 <br><br>
 <label>Fecha de nacimiento:</label>
 <input type="date" name="fechaNac" value="{{ $instructores->fechaNac }}" required>
@@ -60,13 +60,13 @@
 <select name="tbleps_nis" id="tbleps_nis" required>
 <option value="">Seleccione la EPS que pertenece:</option>
 @foreach($eps as $e)
-<option value="{{ $instructores->tbleps_nis == $e->nis ? 'selected' : ''}}">{{ $e->denominacion}}</option>
+<option value="{{ $e->nis}}"{{ $instructores->tbleps_nis == $e->nis ? 'selected' : ''}}>{{ $e->denominacion}}</option>
 @endforeach
 </select><br><br>
 <select name="tblrolesacademicos_nis" id="tblrolesacademicos_nis" required>
 <option value="">Seleccione su rol academico:</option>
 @foreach($rolesacademicos as $r)
-<option value="{{ $instructores->tblrolesacademicos_nis == $r->nis ? 'selected' : ''}}">{{ $r->descripcion}}</option>
+<option value="{{ $r->nis}}"{{ $instructores->tblrolesacademicos_nis == $r->nis ? 'selected' : ''}}">{{ $r->descripcion}}</option>
 @endforeach
 </select><br><br>
 <button type="submit">Actualizar</button></form>

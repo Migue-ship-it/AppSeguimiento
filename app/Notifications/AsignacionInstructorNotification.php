@@ -10,13 +10,11 @@ use Illuminate\Notifications\Notification;
 class AsignacionInstructorNotification extends Notification
 {
     use Queueable;
-    public $descripcion;
     public $instructor;
 
-    public function __construct($instructor, $descripcion)
+    public function __construct($instructor)
     {
         $this->instructor = $instructor;
-        $this->descripcion = $descripcion;
     }
     public function via($notifiable)
     {
@@ -27,8 +25,6 @@ class AsignacionInstructorNotification extends Notification
         return (new MailMessage)
                     ->subject('Te notifico esto.')
                     ->view('email.envioInstructores', [
-                        'instructor' => $this->instructor,
-                        'descripcion' => $this->descripcion
-                    ]);
+                        'instructor' => $this->instructor                    ]);
     }
 }

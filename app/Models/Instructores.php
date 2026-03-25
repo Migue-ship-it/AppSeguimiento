@@ -17,9 +17,17 @@ class Instructores extends Model
     public $incrementing = true;
     protected $keyType = 'int';
     protected $table = 'tblinstructores';
-     protected $fillable = ['Tdoc', 'Ndoc', 'nombres', 'apellidos',
+     protected $fillable = ['Ndoc', 'nombres', 'apellidos',
     'direccion', 'telefono', 'correoinstitucional', 'correopersonal', 'sexo',
     'fechaNac', 'tbltipos_documento_nis', 'tbleps_nis', 'tblrolesacademicos_nis'];
+    public function getSexo(){
+        return [
+            1 => 'Masculino',
+            2 => 'Femenino',
+            3 => 'Prefiero no decirlo',
+            4 => 'Personalizado'
+        ][$this->sexo]?? 'No definido';
+    }
      public function rolesacademicos(){
         return $this -> belongsTo (Rolesacademicos:: class, 'tblrolesacademicos_nis', 'nis');
     }
@@ -29,8 +37,7 @@ class Instructores extends Model
     public function eps(){
         return $this -> belongsTo (Eps:: class, 'tbleps_nis', 'nis');
     }
-
-    public function routeNotificationForMail($notification){
+    public function routeNotificationForMail(){
         return $this -> correoinstitucional;
     }
 
