@@ -40,6 +40,7 @@ class AlternativasController extends Controller
         'descripcion' => 'required|string|max:200',
         'estado' => 'required|in:activo,inactivo'
         ]);
+
         try {
         Alternativas::create($request->only('nombre','descripcion','estado'));
         return redirect()->route('alternativas.index') ->with('success', 'Registro creado correctamente');
@@ -52,7 +53,7 @@ class AlternativasController extends Controller
     {
         $alternativa = Alternativas::findOrFail($id_alternativa);
         return view('alternativas.show', compact('alternativa'));
-        }
+    }
     public function edit($id_alternativa)
     {
         $alternativa = Alternativas::findOrFail($id_alternativa);

@@ -76,7 +76,7 @@ class BitacorasController extends Controller
     $bitacora->delete();
     return redirect()->route('bitacoras.index')->with('danger', 'Registro eliminado correctamente'); 
     } catch (\Exception $th) {
-        return back()->with('error', 'registro eliminado');
+        return back()->with('error', 'error de registro a eliminar');
     }
     }
 }

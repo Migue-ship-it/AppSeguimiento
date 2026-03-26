@@ -14,7 +14,7 @@ return [
     |
     */
  //Revisar el default cambiando log por smtp para terminar prueba y aplicar transporte para envios de correos
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------

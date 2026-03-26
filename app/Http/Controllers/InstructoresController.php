@@ -47,10 +47,8 @@ class InstructoresController extends Controller{
             $tipos_documento = Tipos_documento::find($request->tbltipos_documento_nis);
             $instructor = Instructores::create($request->all());
             DB::commit();
-
           $instructor->notify(new AsignacionInstructorNotification($instructor));
-
-          
+          dd($instructor->correoinstitucional);
             return redirect()->route('instructores.index')
             ->with('success', 'Creado');
             } catch (\Exception $th) {

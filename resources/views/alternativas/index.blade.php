@@ -39,6 +39,8 @@
 <td>{{ $a->estado }}</td>
 <td>{{ $a->created_at }}</td>
 <td>{{ $a->updated_at }}</td>
+<td>{{ $a->created_at->diffForHumans() }} ({{ $a->created_at->format('d/m/Y H:i') }})</td>
+<td>{{ $a->updated_at->diffForHumans() }} ({{ $a->updated_at->format('d/m/Y H:i') }})</td>
 <td>
 <a href="{{ route('alternativas.show', $a->id_alternativa) }}">Ver</a>
 <a href="{{ route('alternativas.edit', $a->id_alternativa) }}">Editar</a>

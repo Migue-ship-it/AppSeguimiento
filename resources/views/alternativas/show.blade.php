@@ -14,6 +14,8 @@
 <p><strong>estado:</strong> {{ $alternativa->estado }}</p>
 <p><strong>Fecha de creacion:</strong> {{ $alternativa->created_at }}</p>
 <p><strong>Fecha de actualizacion:</strong> {{ $alternativa->updated_at }}</p>
+<p><strong>Fecha de creación:</strong> {{ $alternativa->created_at->diffForHumans() }} ({{ $alternativa->created_at->format('d/m/Y H:i') }})</p>
+<p><strong>Última actualización:</strong> {{ $alternativa->updated_at->diffForHumans() }} ({{ $alternativa->updated_at->format('d/m/Y H:i') }})</p>
 <br>
 <a href="{{ route('alternativas.index') }}">Volver</a>
 </body>
