@@ -19,7 +19,7 @@ class Instructores extends Model
     protected $table = 'tblinstructores';
      protected $fillable = ['Ndoc', 'nombres', 'apellidos',
     'direccion', 'telefono', 'correoinstitucional', 'correopersonal', 'sexo',
-    'fechaNac', 'tbltipos_documento_nis', 'tbleps_nis', 'tblrolesacademicos_nis'];
+    'fechaNac', 'tbltipos_documento_nis', 'tbleps_nis'];
     public function getSexo(){
         return [
             1 => 'Masculino',
@@ -27,9 +27,6 @@ class Instructores extends Model
             3 => 'Prefiero no decirlo',
             4 => 'Personalizado'
         ][$this->sexo]?? 'No definido';
-    }
-     public function rolesacademicos(){
-        return $this -> belongsTo (Rolesacademicos:: class, 'tblrolesacademicos_nis', 'nis');
     }
     public function tipos_documento(){
         return $this -> belongsTo (Tipos_documento:: class, 'tbltipos_documento_nis', 'nis');

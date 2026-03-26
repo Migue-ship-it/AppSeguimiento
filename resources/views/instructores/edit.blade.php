@@ -63,12 +63,6 @@
 <option value="{{ $e->nis}}"{{ $instructores->tbleps_nis == $e->nis ? 'selected' : ''}}>{{ $e->denominacion}}</option>
 @endforeach
 </select><br><br>
-<select name="tblrolesacademicos_nis" id="tblrolesacademicos_nis" required>
-<option value="">Seleccione su rol academico:</option>
-@foreach($rolesacademicos as $r)
-<option value="{{ $r->nis}}"{{ $instructores->tblrolesacademicos_nis == $r->nis ? 'selected' : ''}}">{{ $r->descripcion}}</option>
-@endforeach
-</select><br><br>
 <button type="submit">Actualizar</button></form>
 <br><a href="{{ route('instructores.index') }}">Volver</a>
 </body></html>

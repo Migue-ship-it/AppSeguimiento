@@ -20,7 +20,6 @@
 <p><strong>Tipo de sexo:</strong> {{ $instructores->sexo }}</p>
 <p><strong>Fecha de nacimiento:</strong> {{ $instructores->fechaNac }}</p>
 <p><strong>EPS:</strong> {{ $instructores->eps->denominacion }}</p>
-<p><strong>Rol:</strong> {{ $instructores->rolesacademicos->descripcion }}</p>
 <br>
 <a href="{{ route('instructores.index') }}">Volver</a>
 </body>

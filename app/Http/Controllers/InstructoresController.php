@@ -4,7 +4,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Instructores;
 use App\Models\Tipos_documento;
 use App\Models\Eps;
-use App\Models\Rolesacademicos;
 use Illuminate\Http\Request;
 use App\Notifications\AsignacionInstructorNotification;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +12,7 @@ class InstructoresController extends Controller{
 
     public function index()
     {
-    $instructores = Instructores::with('tipos_documento', 'eps', 'rolesacademicos')->get();
+    $instructores = Instructores::with('tipos_documento', 'eps')->get();
     return view('instructores.index', compact('instructores'));
     }
 
@@ -21,8 +20,7 @@ class InstructoresController extends Controller{
     {
     $tipos_documento = Tipos_documento::where('nis', '!=', 5)->get();
     $eps = Eps::all();
-    $rolesacademicos = Rolesacademicos::all();
-    return view('instructores.create', compact('tipos_documento', 'eps', 'rolesacademicos'));
+    return view('instructores.create', compact('tipos_documento', 'eps'));
     }
 
     public function store(Request $request)
@@ -30,7 +28,6 @@ class InstructoresController extends Controller{
     $request->validate([
         'tbltipos_documento_nis' => 'required|exists:tbltipos_documento,nis',
         'tbleps_nis' => 'required|exists:tbleps,nis',
-        'tblrolesacademicos_nis' => 'required|exists:tblrolesacademicos,nis',
         'Ndoc' => 'required',
         'nombres' => 'required',
         'apellidos' => 'required',
@@ -59,7 +56,7 @@ class InstructoresController extends Controller{
     }
     public function show($nis)
     {
-        $instructores = Instructores::with('tipos_documento', 'eps', 'rolesacademicos')->findOrFail($nis);
+        $instructores = Instructores::with('tipos_documento', 'eps')->findOrFail($nis);
         return view('instructores.show', compact('instructores'));
         }
 
@@ -69,14 +66,13 @@ class InstructoresController extends Controller{
             $tipos_documento = Tipos_documento::all();
             $eps = Eps::all();
             $rolesacademicos = Rolesacademicos::all();
-            return view('instructores.edit', compact('instructores', 'tipos_documento', 'eps', 'rolesacademicos'));
+            return view('instructores.edit', compact('instructores', 'tipos_documento', 'eps'));
         }
     public function update(Request $request, $nis)
     {
         $request->validate([
             'tbltipos_documento_nis' => 'required|exists:tbltipos_documento,nis',
             'tbleps_nis' => 'required|exists:tbleps,nis',
-            'tblrolesacademicos_nis' => 'required|exists:tblrolesacademicos,nis',
              'Ndoc' => 'required',
              'nombres' => 'required',
              'apellidos' => 'required',

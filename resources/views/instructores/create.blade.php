@@ -58,12 +58,6 @@
 <option value="{{ $e->nis}}">{{ $e->denominacion}}</option>
 @endforeach
 </select><br></br>
-<select name="tblrolesacademicos_nis" id="tblrolesacademicos_nis" required>
-<option value="">Rol academico:</option>
-@foreach($rolesacademicos as $r)
-<option value="{{ $r->nis}}">{{ $r->descripcion}}</option>
-@endforeach
-</select><br></br>
 <button type="submit">Guardar</button></form>
 <br></br>
 <a href="{{ route('instructores.index') }}">Volver</a>

@@ -12,6 +12,7 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
     public $timestamps = true;
+    protected $primaryKey = 'id';
     protected $table = 'users';
     protected $fillable = [
         'name',
@@ -31,6 +32,14 @@ class User extends Authenticatable
     }
     public function getAuthIdentifierName() {
     return 'documento';
+}
+    public function getRol() {
+    return [
+        1 => 'instructor',
+        2 => 'aprendiz',
+        3 => 'ente conformador',
+        4 => 'administrador'
+    ][$this->rol];
 }
     public function bitacoras(){
         return $this ->hasMany(Bitacoras:: class, 'id_login');

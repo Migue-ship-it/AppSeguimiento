@@ -34,7 +34,6 @@
 <th scope="col">Sexo</th>
 <th scope="col">Fecha de nacimiento</th>
 <th scope="col">EPS</th>
-<th scope="col">Rol academico</th>
 <th scope="col">Acciones</th>
 </tr>
 </thead>
@@ -53,7 +52,6 @@
 <td>{{ $i->sexo }}</td>
 <td>{{ $i->fechaNac }}</td>
 <td>{{ $i->eps->denominacion ?? ''}}</td>
-<td>{{ $i->rolesacademicos->descripcion ?? ''}}</td>
 <td>
 <a href="{{ route('instructores.show', $i->nis) }}">Ver</a>
 <a href="{{ route('instructores.edit', $i->nis) }}">Editar</a>
